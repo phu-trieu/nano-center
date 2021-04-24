@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className="header py-2 d-flex justify-content-between">
+    <header className="header py-2 d-flex justify-content-between">
       <div className="d-flex">
         <img src="/images/microchip.png" alt="store logo" className="logo mx-2" />
         <div className="header-text d-flex flex-column justify-content-center">
@@ -16,7 +16,7 @@ const Header = () => {
           0
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

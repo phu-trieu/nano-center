@@ -36,7 +36,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div className="">
+    <section className="">
       <div className="mt-3 product-categories">
         <h1 className="filter-title text-center">Products</h1>
         <select name="product-type" id="product-type" className="ms-4 mb-2" onChange={handleChange}>
@@ -55,7 +55,7 @@ const ProductList = () => {
           return <ProductListItem key={product.productId} product={product} />;
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

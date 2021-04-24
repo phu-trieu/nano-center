@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
   return (
-    <div className="position-relative">
+    <section className="position-relative">
       <img
         src="/images/banner.jpg"
         alt="Banner; picture of motherboard"
@@ -13,7 +13,7 @@ const Banner = () => {
           <p id="banner-text-caption" className="text-center">Your one-stop shop for anything computer-related</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
