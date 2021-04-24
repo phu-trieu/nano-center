@@ -12,6 +12,25 @@ const ProductList = () => {
       });
   };
 
+  const handleChange = () => {
+    const select = document.getElementById('product-type');
+    const selectedFilter = select.options[select.selectedIndex].dataset.filter;
+    const products = document.querySelectorAll('.product-card');
+    if (selectedFilter === 'all') {
+      products.forEach(product => {
+        product.style.display = 'initial';
+      });
+    } else {
+      products.forEach(product => {
+        if (product.classList[2] !== selectedFilter) {
+          product.style.display = 'none';
+        } else {
+          product.style.display = 'initial';
+        }
+      });
+    }
+  };
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -19,17 +38,17 @@ const ProductList = () => {
   return (
     <div className="">
       <div className="mt-3 product-categories">
-        <select name="product-type" id="product-type">
-          <option value="all">All</option>
-          <option value="cpu">CPU</option>
-          <option value="gpu">GPU</option>
-          <option value="motherboards">Motherboards</option>
-          <option value="power-supply">Power Supply</option>
-          <option value="memory">Memory</option>
-          <option value="cooling">Cooling</option>
-          <option value="drives-and-storage">Drives & Storage</option>
+        <h1 className="filter-title text-center">Products</h1>
+        <select name="product-type" id="product-type" className="ms-4 mb-2" onChange={handleChange}>
+          <option value="all" data-filter="all">All</option>
+          <option value="cpu" data-filter="cpu">CPU</option>
+          <option value="gpu" data-filter="gpu">GPU</option>
+          <option value="motherboards" data-filter="motherboards">Motherboards</option>
+          <option value="power-supply" data-filter="power">Power Supply</option>
+          <option value="memory" data-filter="memory">Memory</option>
+          <option value="cooling" data-filter="cooling">Cooling</option>
+          <option value="drives-and-storage" data-filter="storage">Drives & Storage</option>
         </select>
-        <h1 className="filter-title text-center">All Products</h1>
       </div>
       <div className="product-grid">
         {products.map(product => {
