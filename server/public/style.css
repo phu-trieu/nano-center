@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+}
+
+:root {
+  --main-font: 'Staatliches', cursive;
+  --secondary-font: 'Rubik', sans-serif;
+}
+
+.header {
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+.header-text h1,
+.product-name,
+.filter-title {
+  font-family: var(--main-font);
+}
+
+.header-text p,
+.product-price {
+  font-family: var(--secondary-font);
+}
+
+.header-text h1 {
+  margin: 0;
+  line-height: 0.9em;
+}
+
+.header-text p {
+  margin: 0;
+  line-height: 0.9em;
+}
+
+.cart {
+  font-size: 1.3em;
+}
+
+.cart-count {
+  background-color: gray;
+  color: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 10px;
+  top: 0px;
+  right: -12px;
+  z-index: 1;
+}
+
+.logo {
+  width: 45px;
+}
+
+.product-img {
+  object-fit: contain;
+  width: 250px;
+  height: 250px;
+}
+
+.product-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: center;
+  grid-gap: 10px;
+}
+
+.product-card {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.banner-img {
+  object-fit: cover;
+  height: auto;
+  min-height: 400px;
+  max-height: 1100px;
+  width: 100%;
+}
+
+.banner-text-container {
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: var(--main-font);
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 50%;
+  max-height: 300px;
+}
+
+.banner-text p:nth-child(1) {
+  font-size: 40px;
+}
+
+.banner-text p:nth-child(2) {
+  font-size: 20px;
+}
+
+@media screen and (min-width: 1000px) {
+  #banner-text-title {
+    font-size: 3.5vw;
+  }
+
+  #banner-text-caption {
+    font-size: 2vw;
+  }
+}
