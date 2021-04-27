@@ -29,18 +29,20 @@ import ProductList from './product-list';
 // }
 
 const App = () => {
-  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const [hamburgerOpen, setHamburgerOpen] = useState(true);
 
   const handleClick = () => {
     setHamburgerOpen(state => !state);
   };
 
   return (
-    <div>
+    <div className="overlay">
       <Nav open={hamburgerOpen} />
-      <Header handleClick={handleClick} />
-      <Banner />
-      <ProductList />
+      <div onClick={hamburgerOpen ? handleClick : () => {}} className={hamburgerOpen ? 'shade active' : 'shade'}>
+        <Header handleClick={handleClick} />
+        <Banner />
+        <ProductList />
+      </div>
     </div>
   );
 };

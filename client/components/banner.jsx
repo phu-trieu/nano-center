@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
   return (
-    <section className="position-relative">
+    <section className="banner position-relative">
       <img
         src="/images/banner.jpg"
         alt="Banner; picture of motherboard"
