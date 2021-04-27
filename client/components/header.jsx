@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Header = () => {
+const Header = props => {
   return (
     <header className="header py-2 d-flex justify-content-between">
       <div className="d-flex">
-        <img src="/images/microchip.png" alt="store logo" className="logo mx-2" />
+        <i onClick={props.handleClick} className="nav-icon fas fa-bars align-self-center mx-3"></i>
         <div className="header-text d-flex flex-column justify-content-center">
           <h1>Nano Center</h1>
           <p>computers & electronics</p>

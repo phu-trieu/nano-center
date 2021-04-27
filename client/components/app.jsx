@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Nav from './nav';
 import Header from './header';
-import ProductList from './product-list';
 import Banner from './banner';
+import ProductList from './product-list';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -28,9 +29,16 @@ import Banner from './banner';
 // }
 
 const App = () => {
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+
+  const handleClick = () => {
+    setHamburgerOpen(state => !state);
+  };
+
   return (
     <div>
-      <Header />
+      <Nav open={hamburgerOpen} />
+      <Header handleClick={handleClick} />
       <Banner />
       <ProductList />
     </div>
