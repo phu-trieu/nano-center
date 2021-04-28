@@ -13,6 +13,22 @@ body, html {
   --secondary-font: 'Rubik', sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .header {
   background-color: black;
   color: white;
@@ -171,14 +187,22 @@ body, html {
   }
 }
 
-.shade {
+.block {
   transition: all 100ms ease-in;
+  position: relative;
+}
+
+.shade {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
 }
 
 .shade.active {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
   z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
 }

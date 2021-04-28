@@ -38,10 +38,11 @@ const App = () => {
   return (
     <div className="overlay">
       <Nav open={hamburgerOpen} />
-      <div onClick={hamburgerOpen ? handleClick : () => {}} className={hamburgerOpen ? 'shade active' : 'shade'}>
+      <div onClick={hamburgerOpen ? handleClick : () => {}} className="block">
         <Header handleClick={handleClick} />
         <Banner />
         <ProductList />
+        <div className={`shade ${hamburgerOpen ? 'active' : ''}`}></div>
       </div>
     </div>
   );
