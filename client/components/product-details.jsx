@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Carousel from './carousel';
 
 const ProductDetails = props => {
   const [product, setProduct] = useState(null);
@@ -28,7 +29,7 @@ const ProductDetails = props => {
       </div>
       <div className="d-flex flex-wrap">
         <div className="ms-3">
-          <img src={product.image[0]} alt="" className="product-img"/>
+          <Carousel imgs={product.image} alt={product.name} />
         </div>
         <div className="ms-3">
           <div className="product-name"><h1>{product.name}</h1></div>
