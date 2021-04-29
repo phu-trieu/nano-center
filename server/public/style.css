@@ -237,7 +237,7 @@ header {
 
 .shade.active2 {
   width: 100%;
-  height: 106%;
+  height: 107%;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.3);
 }
@@ -253,4 +253,8 @@ header {
 
 .directory u:nth-child(odd) {
   cursor: pointer;
+}
+
+.product-long-desc {
+  width: 95%;
 }

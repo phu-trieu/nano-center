@@ -35,7 +35,7 @@ const ProductDetails = props => {
           <div className="product-price"><h4>{`$${(product.price / 100).toFixed(2)}`}</h4></div>
         </div>
       </div>
-      <div className="col-sm-11 m-auto">
+      <div className="product-long-desc m-auto">
         <p>{product.longDescription}</p>
       </div>
     </div>
