@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductListItem from './product-list-item';
 
-const ProductList = () => {
+const ProductList = props => {
   const [products, setProducts] = useState([]);
 
   const getProducts = () => {
@@ -9,6 +9,9 @@ const ProductList = () => {
       .then(response => response.json())
       .then(data => {
         setProducts(data);
+      })
+      .catch(err => {
+        console.error('error:', err);
       });
   };
 
@@ -36,9 +39,9 @@ const ProductList = () => {
   }, []);
 
   return (
-    <section className="">
+    <section id="product-list">
       <div className="mt-3 product-categories">
-        <h1 className="filter-title text-center">Products</h1>
+        <h1 className="filter-title text-center">All Products</h1>
         <select name="product-type" id="product-type" className="ms-4 mb-2" onChange={handleChange}>
           <option value="all" data-filter="all">All</option>
           <option value="cpu" data-filter="cpu">CPU</option>
@@ -52,7 +55,7 @@ const ProductList = () => {
       </div>
       <div className="product-grid">
         {products.map(product => {
-          return <ProductListItem key={product.productId} product={product} />;
+          return <ProductListItem key={product.productId} product={product} setView={props.setView}/>;
         })}
       </div>
     </section>

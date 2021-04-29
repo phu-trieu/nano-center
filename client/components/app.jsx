@@ -3,6 +3,7 @@ import Nav from './nav';
 import Header from './header';
 import Banner from './banner';
 import ProductList from './product-list';
+import ProductDetails from './product-details';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -29,20 +30,50 @@ import ProductList from './product-list';
 // }
 
 const App = () => {
-  const [hamburgerOpen, setHamburgerOpen] = useState(true);
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const [view, setView] = useState({
+    name: 'details',
+    params: { productId: 1 }
+  });
 
-  const handleClick = () => {
+  const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
   };
 
+  const goHome = () => {
+    setView({
+      name: 'catalog',
+      params: {}
+    });
+  };
+
+  const checkView = () => {
+    if (view.name === 'catalog') {
+      return (
+        <div>
+          <Banner />
+          <ProductList setView={setView} />
+        </div>
+      );
+    }
+    if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} />;
+  };
+
+  const setShade = () => {
+    if (view.name === 'details' && hamburgerOpen) {
+      return 'active2';
+    } else if (hamburgerOpen) {
+      return 'active';
+    } else return '';
+  };
+
   return (
-    <div className="overlay">
+    <div className="hundo">
       <Nav open={hamburgerOpen} />
-      <div onClick={hamburgerOpen ? handleClick : () => {}} className="block">
-        <Header handleClick={handleClick} />
-        <Banner />
-        <ProductList />
-        <div className={`shade ${hamburgerOpen ? 'active' : ''}`}></div>
+      <div onClick={hamburgerOpen ? handleMenuClick : () => {}} className={`block ${view.name === 'details' ? 'hundo' : ''}`}>
+        <Header handleMenuClick={handleMenuClick} goHome={goHome}/>
+        {checkView()}
+        <div className={`shade ${setShade()}`}></div>
       </div>
     </div>
   );
