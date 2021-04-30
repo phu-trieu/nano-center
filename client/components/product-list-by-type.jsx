@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ProductListItem from './product-list-item';
 
-const ProductList = props => {
+const ProductListByType = props => {
   const [products, setProducts] = useState([]);
 
-  const getProducts = () => {
-    fetch('/api/products')
+  const getProductsByType = productType => {
+    fetch(`/api/products/${productType}`)
       .then(response => response.json())
       .then(data => {
         setProducts(data);
@@ -16,21 +16,25 @@ const ProductList = props => {
   };
 
   useEffect(() => {
-    getProducts();
-  }, []);
+    getProductsByType(props.type);
+  }, [props.type]);
 
   return (
     <section id="product-list">
+      <div className="spacer"></div>
+      <div className="directory ms-3">
+        <u onClick={props.goHome}>&lt; Home</u>
+      </div>
       <div className="mt-3 product-categories">
-        <h1 className="filter-title text-center">All Products</h1>
+        <h1 className="filter-title text-center">{props.type}</h1>
       </div>
       <div className="product-grid">
         {products.map(product => {
-          return <ProductListItem key={product.productId} product={product} setView={props.setView}/>;
+          return <ProductListItem key={product.productId} product={product} setView={props.setView} />;
         })}
       </div>
     </section>
   );
 };
 
-export default ProductList;
+export default ProductListByType;

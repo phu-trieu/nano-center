@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Nav from './nav';
 import Header from './header';
-import ProductList from './product-list';
 import Banner from './banner';
+import ProductList from './product-list';
+import ProductDetails from './product-details';
+import ProductListByType from './product-list-by-type';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -28,11 +31,44 @@ import Banner from './banner';
 // }
 
 const App = () => {
+  const [hamburgerOpen, setHamburgerOpen] = useState(true);
+  const [view, setView] = useState({
+    name: 'filter',
+    params: { type: 'CPU' }
+  });
+
+  const handleMenuClick = () => {
+    setHamburgerOpen(state => !state);
+  };
+
+  const goHome = () => {
+    setView({
+      name: 'catalog',
+      params: {}
+    });
+  };
+
+  const checkView = () => {
+    if (view.name === 'catalog') {
+      return (
+        <div>
+          <Banner />
+          <ProductList setView={setView} />
+        </div>
+      );
+    }
+    if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} />;
+    if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} goHome={goHome} />;
+  };
+
   return (
-    <div>
-      <Header />
-      <Banner />
-      <ProductList />
+    <div className="hundo">
+      <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
+      <div onClick={hamburgerOpen ? handleMenuClick : () => {}} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
+        <Header handleMenuClick={handleMenuClick} goHome={goHome}/>
+        {checkView()}
+        <div className={`shade ${hamburgerOpen ? 'active' : ''}`}></div>
+      </div>
     </div>
   );
 };

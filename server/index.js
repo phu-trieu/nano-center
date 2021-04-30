@@ -35,12 +35,34 @@ app.get('/api/products/:productId', (req, res, next) => {
     WHERE "productId" = $1
   `;
   const params = [req.params.productId];
+
+  if (Number.isNaN(Number(req.params.productId))) {
+    return next();
+  }
+
   db.query(sql, params)
     .then(result => {
       if (result.rows[0] === undefined) {
         next();
       } else {
         res.json(result.rows[0]);
+      }
+    })
+    .catch(err => next(err));
+});
+
+app.get('/api/products/:productType', (req, res, next) => {
+  const sql = `
+    SELECT * from "products"
+    WHERE "productType" = $1
+  `;
+  const params = [req.params.productType];
+  db.query(sql, params)
+    .then(result => {
+      if (result.rows[0] === undefined) {
+        next();
+      } else {
+        res.json(result.rows);
       }
     })
     .catch(err => next(err));
