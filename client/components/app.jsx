@@ -33,8 +33,8 @@ import ProductListByType from './product-list-by-type';
 const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(true);
   const [view, setView] = useState({
-    name: 'catalog',
-    params: {}
+    name: 'filter',
+    params: { type: 'CPU' }
   });
 
   const handleMenuClick = () => {
@@ -58,25 +58,16 @@ const App = () => {
       );
     }
     if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} />;
-    if (view.name === 'filter') return <ProductListByType type={view.params.type} />;
-  };
-
-  const setShade = () => {
-    if (view.name === 'details' && hamburgerOpen) {
-      return 'active2';
-    } else if (hamburgerOpen) {
-      return 'active';
-    } else return '';
+    if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} />;
   };
 
   return (
-
     <div className="hundo">
       <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
       <div onClick={hamburgerOpen ? handleMenuClick : () => {}} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
         <Header handleMenuClick={handleMenuClick} goHome={goHome}/>
         {checkView()}
-        <div className={`shade ${setShade()}`}></div>
+        <div className={`shade ${hamburgerOpen ? 'active' : ''}`}></div>
       </div>
     </div>
   );

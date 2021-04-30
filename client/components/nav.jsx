@@ -2,11 +2,11 @@ import React from 'react';
 
 const Nav = props => {
   const handleClick = e => {
+    props.setOpen(false);
     props.setView({
       name: 'filter',
       params: { type: `${e.target.dataset.tag}` }
     });
-    props.setOpen(false);
   };
 
   return (
