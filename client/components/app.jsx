@@ -30,10 +30,10 @@ import ProductDetails from './product-details';
 // }
 
 const App = () => {
-  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const [hamburgerOpen, setHamburgerOpen] = useState(true);
   const [view, setView] = useState({
-    name: 'details',
-    params: { productId: 1 }
+    name: 'catalog',
+    params: {}
   });
 
   const handleMenuClick = () => {
@@ -68,8 +68,9 @@ const App = () => {
   };
 
   return (
+
     <div className="hundo">
-      <Nav open={hamburgerOpen} />
+      <Nav open={hamburgerOpen} setView={setView} />
       <div onClick={hamburgerOpen ? handleMenuClick : () => {}} className={`block ${view.name === 'details' ? 'hundo' : ''}`}>
         <Header handleMenuClick={handleMenuClick} goHome={goHome}/>
         {checkView()}

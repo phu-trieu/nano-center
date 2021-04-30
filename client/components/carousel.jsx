@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 const Carousel = props => {
-  // console.log(props.imgs);
   const [imgIndex, setImgIndex] = useState(0);
+  const [direction, setDirection] = useState('');
+
   const handleCircleClick = e => {
     const id = Number(e.target.id);
+    if (id < imgIndex) {
+      setDirection('backward');
+    } else {
+      setDirection('forward');
+    }
     setImgIndex(id);
   };
 
@@ -16,12 +22,12 @@ const Carousel = props => {
         in={true}
         appear={true}
         timeout={300}
-        classNames="fade"
+        classNames={direction === 'forward' ? 'fade-next' : 'fade-back'}
       >
         <img src={props.imgs[imgIndex]} alt={props.alt} className="product-img"/>
       </CSSTransition>
-      <div className="d-flex justify-content-evenly col-8">
-        {props.imgs.map((img, i) => <i key={i} id={i} onClick={handleCircleClick} className={`fa${i === imgIndex ? 's' : 'r'} fa-circle`} />)}
+      <div className="d-flex justify-content-evenly col-8 mt-3">
+        {props.imgs.map((img, i) => <i key={i} id={i} onClick={handleCircleClick} className={`caro-circle fa${i === imgIndex ? 's' : 'r'} fa-circle`} />)}
       </div>
     </div>
   );

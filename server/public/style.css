@@ -200,6 +200,7 @@ header {
   border-bottom: 1px solid black;
   font-family: var(--secondary-font);
   font-size: 2rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 850px) {
@@ -212,7 +213,6 @@ header {
     border-bottom: 1px solid black;
     font-family: var(--secondary-font);
     font-size: 1.5rem;
-    cursor: pointer;
   }
 }
 
@@ -268,39 +268,80 @@ header {
   font-size: 36px;
 }
 
-.fade-appear {
+.fade-next-appear {
   opacity: 0;
   transform: translate(-10px, 0);
 }
 
-.fade-appear-active {
+.fade-next-appear-active {
   opacity: 1;
   transform: translate(0, 0);
   transition: all 500ms ease;
 }
 
-.fade-enter {
+.fade-next-enter {
   opacity: 0;
   transform: translate(-10px, 0);
 }
 
-.fade-enter-active {
+.fade-next-enter-active {
   opacity: 1;
   transform: translate(0, 0);
   transition: all 500ms ease;
 }
 
-.fade-exit {
+.fade-next-exit {
   opacity: 1;
   transform: translate(0, 0);
 }
 
-.fade-exit-active {
+.fade-next-exit-active {
   opacity: 0;
   transform: translate(-10px, 0);
   transition: all 500ms ease;
 }
 
-.fade-exit-done {
+.fade-next-exit-done {
   opacity: 0;
+}
+
+.fade-back-appear {
+  opacity: 0;
+  transform: translate(10px, 0);
+}
+
+.fade-back-appear-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 500ms ease;
+}
+
+.fade-back-enter {
+  opacity: 0;
+  transform: translate(10px, 0);
+}
+
+.fade-back-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 500ms ease;
+}
+
+.fade-back-exit {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.fade-back-exit-active {
+  opacity: 0;
+  transform: translate(10px, 0);
+  transition: all 500ms ease;
+}
+
+.fade-back-exit-done {
+  opacity: 0;
+}
+
+.caro-circle {
+  cursor: pointer;
 }
