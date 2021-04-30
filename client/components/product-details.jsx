@@ -15,6 +15,13 @@ const ProductDetails = props => {
       });
   };
 
+  const getProductsByType = () => {
+    props.setView({
+      name: 'filter',
+      params: { type: product.productType }
+    });
+  };
+
   useEffect(() => {
     getProductDetails(props.params.productId);
   }, []);
@@ -25,7 +32,7 @@ const ProductDetails = props => {
       <div className="directory ms-3">
         <u onClick={props.goHome}>Home</u>
         <p> &gt; </p>
-        <u>{product.productType}</u>
+        <u onClick={getProductsByType}>{product.productType}</u>
       </div>
       <div className="d-flex flex-wrap">
         <div className="ms-3">

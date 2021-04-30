@@ -58,7 +58,7 @@ const App = () => {
       );
     }
     if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} />;
-    if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} />;
+    if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} goHome={goHome} />;
   };
 
   return (
