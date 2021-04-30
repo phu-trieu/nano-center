@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ProductListItem from './product-list-item';
 
-const ProductList = props => {
+const ProductListByType = props => {
   const [products, setProducts] = useState([]);
 
-  const getProducts = () => {
-    fetch('/api/products')
+  const getProductsByType = productType => {
+    fetch(`/api/products/${productType}`)
       .then(response => response.json())
       .then(data => {
         setProducts(data);
@@ -16,7 +16,7 @@ const ProductList = props => {
   };
 
   useEffect(() => {
-    getProducts();
+    getProductsByType(props.type);
   }, []);
 
   return (
@@ -26,11 +26,11 @@ const ProductList = props => {
       </div>
       <div className="product-grid">
         {products.map(product => {
-          return <ProductListItem key={product.productId} product={product} setView={props.setView}/>;
+          return <ProductListItem key={product.productId} product={product} setView={props.setView} />;
         })}
       </div>
     </section>
   );
 };
 
-export default ProductList;
+export default ProductListByType;

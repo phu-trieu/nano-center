@@ -4,6 +4,7 @@ import Header from './header';
 import Banner from './banner';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
+import ProductListByType from './product-list-by-type';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -57,6 +58,7 @@ const App = () => {
       );
     }
     if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} />;
+    if (view.name === 'filter') return <ProductListByType type={view.params.type} />;
   };
 
   const setShade = () => {
@@ -70,8 +72,8 @@ const App = () => {
   return (
 
     <div className="hundo">
-      <Nav open={hamburgerOpen} setView={setView} />
-      <div onClick={hamburgerOpen ? handleMenuClick : () => {}} className={`block ${view.name === 'details' ? 'hundo' : ''}`}>
+      <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
+      <div onClick={hamburgerOpen ? handleMenuClick : () => {}} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
         <Header handleMenuClick={handleMenuClick} goHome={goHome}/>
         {checkView()}
         <div className={`shade ${setShade()}`}></div>
