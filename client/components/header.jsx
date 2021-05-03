@@ -13,7 +13,7 @@ const Header = props => {
       <div className="d-flex align-items-center me-3 position-relative">
         <i className="fas fa-shopping-cart cart"></i>
         <div className="cart-count position-absolute d-flex justify-content-center align-items-center">
-          0
+          {props.cartItemCount}
         </div>
       </div>
     </header>
