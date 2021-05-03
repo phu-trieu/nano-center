@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from './nav';
 import Header from './header';
 import Banner from './banner';
@@ -31,11 +31,12 @@ import ProductListByType from './product-list-by-type';
 // }
 
 const App = () => {
-  const [hamburgerOpen, setHamburgerOpen] = useState(true);
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'filter',
-    params: { type: 'CPU' }
+    name: 'details',
+    params: { productId: 1 }
   });
+  const [cart, setCart] = useState([]);
 
   const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
@@ -57,15 +58,39 @@ const App = () => {
         </div>
       );
     }
-    if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} />;
+    if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
     if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} goHome={goHome} />;
   };
+
+  const getCartItems = () => {
+    fetch('/api/cart')
+      .then(response => response.json())
+      .then(cartItems => setCart(cartItems));
+  };
+
+  const addToCart = product => {
+    fetch('/api/cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    })
+      .then(response => response.json())
+      .then(cartItem => {
+        setCart(oldCart => [...oldCart, cartItem]);
+      });
+  };
+
+  useEffect(() => {
+    getCartItems();
+  }, []);
 
   return (
     <div className="hundo">
       <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
       <div onClick={hamburgerOpen ? handleMenuClick : () => {}} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
-        <Header handleMenuClick={handleMenuClick} goHome={goHome}/>
+        <Header handleMenuClick={handleMenuClick} goHome={goHome} cartItemCount={cart.length}/>
         {checkView()}
         <div className={`shade ${hamburgerOpen ? 'active' : ''}`}></div>
       </div>

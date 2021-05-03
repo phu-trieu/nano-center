@@ -41,6 +41,7 @@ const ProductDetails = props => {
         <div className="ms-3">
           <div className="product-name"><h1>{product.name}</h1></div>
           <div className="product-price"><h4>{`$${(product.price / 100).toFixed(2)}`}</h4></div>
+          <button className="cart-btn" onClick={() => props.addToCart(product)}>Add to Cart</button>
         </div>
       </div>
       <div className="product-long-desc m-auto">
