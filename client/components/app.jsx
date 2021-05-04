@@ -110,7 +110,7 @@ const App = () => {
         {checkView()}
         <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
       </div>
-      <CartSummary cart={cart} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} length={cart.length}/>
+      <CartSummary cart={cart} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
     </div>
   );
 };

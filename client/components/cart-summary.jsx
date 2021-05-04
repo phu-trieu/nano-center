@@ -3,12 +3,12 @@ import CartSummaryItem from './cart-summary-item';
 
 const CartSummary = props => {
   const checkCart = () => {
-    if (props.length === 0) {
+    if (props.cart.length === 0) {
       return (
         <h5 className="ms-2 py-4">Your cart is empty.</h5>
       );
     }
-    return props.cart.map((item, i) => <CartSummaryItem key={i} name={item.name} price={item.price} image={item.image[0]} />
+    return props.cart.map(item => <CartSummaryItem key={item.cartItemId} name={item.name} price={item.price} image={item.image[0]} />
     );
   };
 
@@ -16,7 +16,7 @@ const CartSummary = props => {
     <div className={`cart-menu ${props.cartOpen ? 'active' : ''}`}>
       <h1 className="your-cart ms-1 mt-4">Your Cart</h1>
       {checkCart()}
-      <p className="cart-total">{`Total (${props.length} ${props.length === 1 ? 'item' : 'items'}): ${props.total}`}</p>
+      <p className="cart-total">{`Total (${props.cart.length} ${props.cart.length === 1 ? 'item' : 'items'}): ${props.total}`}</p>
       <button className="checkout-btn">Checkout</button>
     </div>
   );

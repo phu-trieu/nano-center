@@ -165,6 +165,8 @@ app.route('/api/cart')
       .catch(err => next(err));
   });
 
+app.delete('/api/cart/:cartItemId');
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
