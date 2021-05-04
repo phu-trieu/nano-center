@@ -350,9 +350,15 @@ header {
   background-color: black;
   color: white;
   font-family: var(--secondary-font);
+  font-size: 1.2rem;
   padding: 10px;
+  border-style: none;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.cart-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .cart-menu {
@@ -397,10 +403,15 @@ header {
   background-color: black;
   color: white;
   font-size: 1.5rem;
+  border-style: none;
   font-family: var(--main-font);
   width: 70%;
   border-radius: 10px;
   margin: 10px 0 0 5px;
+}
+
+.checkout-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .cart-total {

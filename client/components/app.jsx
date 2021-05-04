@@ -38,7 +38,7 @@ const App = () => {
     params: { productId: 1 }
   });
   const [cart, setCart] = useState([]);
-  const [cartOpen, setCartOpen] = useState(true);
+  const [cartOpen, setCartOpen] = useState(false);
 
   const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
