@@ -27,7 +27,7 @@ const Carousel = props => {
         <img src={props.imgs[imgIndex]} alt={props.alt} className="product-img"/>
       </CSSTransition>
       <div className="d-flex justify-content-evenly col-8 mt-3">
-        {props.imgs.map((img, i) => <i key={i} id={i} onClick={handleCircleClick} className={`caro-circle fa${i === imgIndex ? 's' : 'r'} fa-circle`} />)}
+        {props.imgs.map((img, i) => <img key={i} id={i} onClick={handleCircleClick} src={img} className="carousel-img" />)}
       </div>
     </div>
   );

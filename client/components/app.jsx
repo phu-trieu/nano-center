@@ -5,6 +5,7 @@ import Banner from './banner';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import ProductListByType from './product-list-by-type';
+import CartSummary from './cart-summary';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -37,9 +38,14 @@ const App = () => {
     params: { productId: 1 }
   });
   const [cart, setCart] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
 
   const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
+  };
+
+  const handleCartClick = () => {
+    setCartOpen(state => !state);
   };
 
   const goHome = () => {
@@ -82,6 +88,30 @@ const App = () => {
       });
   };
 
+  const checkMenu = () => {
+    if (hamburgerOpen) return handleMenuClick;
+    if (cartOpen) return handleCartClick;
+  };
+
+  const calculateTotal = () => {
+    const reducer = (acc, current) => acc + current;
+    return `$${cart.map(v => v.price).reduce(reducer) / 100}`;
+  };
+
+  const deleteCartItem = cartItemId => {
+    fetch(`/api/cartItems/${cartItemId}`, {
+      method: 'DELETE'
+    })
+      .then(() => {
+        cart.forEach((cartItem, i, arr) => {
+          if (cartItem.cartItemId === cartItemId) {
+            const newCart = cart.slice(cart.splice(i, 1));
+            setCart(newCart);
+          }
+        });
+      });
+  };
+
   useEffect(() => {
     getCartItems();
   }, []);
@@ -89,11 +119,12 @@ const App = () => {
   return (
     <div className="hundo">
       <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
-      <div onClick={hamburgerOpen ? handleMenuClick : () => {}} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
-        <Header handleMenuClick={handleMenuClick} goHome={goHome} cartItemCount={cart.length}/>
+      <div onClick={checkMenu()} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
+        <Header handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
         {checkView()}
-        <div className={`shade ${hamburgerOpen ? 'active' : ''}`}></div>
+        <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
       </div>
+      <CartSummary cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
     </div>
   );
 };

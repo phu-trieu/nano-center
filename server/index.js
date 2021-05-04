@@ -20,10 +20,10 @@ app.get('/api/health-check', (req, res, next) => {
 });
 
 const validateId = (req, res, next) => {
-  const id = Number(req.body.productId);
+  const id = Number(req.body.productId) || Number(req.params.cartItemId);
   if (Number.isNaN(id) || id < 0) {
     res.status(400).json({
-      error: 'product id must be a positive integer'
+      error: `${req.body.productId ? 'productId' : 'cartItemId'} must be a positive integer`
     });
     return;
   }
@@ -99,7 +99,8 @@ app.route('/api/cart')
       db.query(sql, params)
         .then(result => {
           res.json(result.rows);
-        });
+        })
+        .catch(err => next(err));
     }
   })
   .post(validateId, (req, res, next) => {
@@ -164,6 +165,24 @@ app.route('/api/cart')
       })
       .catch(err => next(err));
   });
+
+app.delete('/api/cartItems/:cartItemId', validateId, (req, res, next) => {
+  const sql = `
+    DELETE FROM "cartItems"
+    WHERE "cartItemId" = $1
+    RETURNING *
+  `;
+  const params = [req.params.cartItemId];
+  db.query(sql, params)
+    .then(result => {
+      if (result.rows[0] === undefined) {
+        res.status(404).json({ error: 'cartItemId does not exist' });
+      } else {
+        res.status(204).json();
+      }
+    })
+    .catch(err => next(err));
+});
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
