@@ -60,7 +60,7 @@ header {
 }
 
 .header-text,
-.caro-circle,
+.carousel-img,
 .cart,
 .delete {
   cursor: pointer;
@@ -412,4 +412,14 @@ header {
 .cart-item-border {
   border-top: 1px rgba(0,0,0,0.3) solid;
   border-bottom: 1px rgba(0, 0, 0, 0.205) solid;
+}
+
+.carousel-img {
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+}
+
+.carousel-img:hover {
+  border: 1px solid rgba(0, 0, 0, 0.541);
 }
