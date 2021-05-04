@@ -98,6 +98,20 @@ const App = () => {
     return `$${cart.map(v => v.price).reduce(reducer) / 100}`;
   };
 
+  const deleteCartItem = cartItemId => {
+    fetch(`/api/cartItems/${cartItemId}`, {
+      method: 'DELETE'
+    })
+      .then(() => {
+        cart.forEach((cartItem, i, arr) => {
+          if (cartItem.cartItemId === cartItemId) {
+            const newCart = cart.slice(cart.splice(i, 1));
+            setCart(newCart);
+          }
+        });
+      });
+  };
+
   useEffect(() => {
     getCartItems();
   }, []);
@@ -110,7 +124,7 @@ const App = () => {
         {checkView()}
         <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
       </div>
-      <CartSummary cart={cart} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
+      <CartSummary cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
     </div>
   );
 };

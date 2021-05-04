@@ -61,7 +61,8 @@ header {
 
 .header-text,
 .caro-circle,
-.cart {
+.cart,
+.delete {
   cursor: pointer;
 }
 

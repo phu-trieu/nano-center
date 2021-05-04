@@ -7,6 +7,7 @@ const CartSummaryItem = props => {
       <div className="cart-info ">
         <div>{props.name}</div>
         <div>{`$${(props.price / 100).toFixed(2)}`}</div>
+        <i onClick={() => props.deleteCartItem(props.cartItemId)} className="delete fas fa-trash-alt" title="Delete item"></i>
       </div>
     </div>
   );

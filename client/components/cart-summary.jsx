@@ -8,7 +8,7 @@ const CartSummary = props => {
         <h5 className="ms-2 py-4">Your cart is empty.</h5>
       );
     }
-    return props.cart.map(item => <CartSummaryItem key={item.cartItemId} name={item.name} price={item.price} image={item.image[0]} />
+    return props.cart.map(item => <CartSummaryItem key={item.cartItemId} deleteCartItem={props.deleteCartItem} cartItemId={item.cartItemId} name={item.name} price={item.price} image={item.image[0]} />
     );
   };
 
