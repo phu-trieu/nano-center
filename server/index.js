@@ -137,6 +137,7 @@ app.route('/api/cart')
       })
       .then(cartObj => {
         req.session.cartId = cartObj.cartId;
+        console.log(req.session.cartId);
         const sql = `
           INSERT INTO "cartItems" ("cartId", "productId", "price")
           VALUES ($1, $2, $3)
@@ -182,6 +183,25 @@ app.delete('/api/cartItems/:cartItemId', validateId, (req, res, next) => {
       }
     })
     .catch(err => next(err));
+});
+
+app.post('/api/orders', (req, res, next) => {
+  console.log(req.session);
+  if (!req.session.cartId) {
+    return res.json({
+      error: 'cartId does not exist'
+    });
+  } else if (!req.body.name || !req.body.creditCard || !req.body.shippingAddress) {
+    return res.json({
+      error: 'body must include name, creditCard, and shippingAddress'
+    });
+  }
+  const sql = `
+    INSERT INTO "orders" ("cartId", "name", "creditCard", "shippingAddress")
+    VALUES ($1, $2, $3, $4)
+    RETURNING *
+  `;
+  const params = [];
 });
 
 app.use('/api', (req, res, next) => {
