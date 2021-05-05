@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Header = props => {
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      const header = document.getElementsByTagName('header')[0];
+      const height = header.clientHeight;
+      props.setSpacerHeight(height);
+    });
+  }, []);
+
   return (
     <header className="py-2 d-flex justify-content-between">
       <div className="d-flex">

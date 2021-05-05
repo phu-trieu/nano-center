@@ -28,7 +28,7 @@ const ProductDetails = props => {
 
   return (
     product && <div>
-      <div className="spacer"></div>
+      <div style={{ height: props.spacerHeight }}></div>
       <div className="directory ms-3">
         <u onClick={props.goHome}>Home</u>
         <p> &gt; </p>

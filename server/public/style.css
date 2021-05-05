@@ -434,3 +434,13 @@ header {
 .carousel-img:hover {
   border: 1px solid rgba(0, 0, 0, 0.541);
 }
+
+.shipping-info {
+  height: 100vh;
+}
+
+.shipping-cart {
+  background-color: #9E9B9B;
+  height: 100vh;
+
+}

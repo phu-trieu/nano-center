@@ -21,7 +21,7 @@ const ProductListByType = props => {
 
   return (
     <section id="product-list">
-      <div className="spacer"></div>
+      <div style={{ height: props.spacerHeight }}></div>
       <div className="directory ms-3">
         <u onClick={props.goHome}>&lt; Home</u>
       </div>

@@ -6,6 +6,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import ProductListByType from './product-list-by-type';
 import CartSummary from './cart-summary';
+import Shipping from './shipping';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -34,11 +35,12 @@ import CartSummary from './cart-summary';
 const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'details',
-    params: { productId: 1 }
+    name: 'shipping',
+    params: {}
   });
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
+  const [spacerHeight, setSpacerHeight] = useState(0);
 
   const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
@@ -64,8 +66,9 @@ const App = () => {
         </div>
       );
     }
-    if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
-    if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} goHome={goHome} />;
+    if (view.name === 'details') return <ProductDetails spacerHeight={spacerHeight} params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
+    if (view.name === 'filter') return <ProductListByType spacerHeight={spacerHeight} type={view.params.type} setView={setView} goHome={goHome} />;
+    if (view.name === 'shipping') return <Shipping spacerHeight={spacerHeight} />;
   };
 
   const getCartItems = () => {
@@ -114,13 +117,14 @@ const App = () => {
 
   useEffect(() => {
     getCartItems();
+    setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
   }, []);
 
   return (
     <div className="hundo">
       <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
       <div onClick={checkMenu()} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
-        <Header handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
+        <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
         {checkView()}
         <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
       </div>
