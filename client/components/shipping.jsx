@@ -67,11 +67,11 @@ const Shipping = props => {
                 <label htmlFor="phone" className="form-label secondary-font">Phone # *</label>
                 <input type="tel" id="phone" className="form-control shipping-input" aria-required required="required"/>
               </div>
-              <button className="submit mb-3" type="submit">Submit</button>
+              <button className="submit mb-3" type="submit">Continue to Payment</button>
             </form>
           </div>
         </div>
-        <CheckoutCartSummary cart={props.cart} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight} />
+        <CheckoutCartSummary cart={props.cart} total={props.total} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight} />
       </div>
     </div>
   );

@@ -372,7 +372,7 @@ header {
   right: -100%;
   transition: all 250ms ease-in-out;
   z-index: 2;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -451,8 +451,9 @@ header {
   position: fixed;
   right: 0;
   top: 53px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+  box-shadow: -5px 2px 9px 0px #B2B2B2;
 }
 
 .line {
@@ -489,4 +490,10 @@ header {
   padding: 7px;
   min-width: 150px;
   margin-top: 20px;
+}
+
+.shipping-cart-items-wrapper {
+  height: 40%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

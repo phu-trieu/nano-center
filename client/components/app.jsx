@@ -68,7 +68,7 @@ const App = () => {
     }
     if (view.name === 'details') return <ProductDetails spacerHeight={spacerHeight} params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
     if (view.name === 'filter') return <ProductListByType spacerHeight={spacerHeight} type={view.params.type} setView={setView} goHome={goHome} />;
-    if (view.name === 'shipping') return <Shipping cart={cart} goHome={goHome} deleteCartItem={deleteCartItem} spacerHeight={spacerHeight} />;
+    if (view.name === 'shipping') return <Shipping cart={cart} goHome={goHome} total={cart[0] ? calculateTotal() : '$0.00'} deleteCartItem={deleteCartItem} spacerHeight={spacerHeight} />;
   };
 
   const getCartItems = () => {
@@ -98,7 +98,7 @@ const App = () => {
 
   const calculateTotal = () => {
     const reducer = (acc, current) => acc + current;
-    return `$${cart.map(v => v.price).reduce(reducer) / 100}`;
+    return `$${(cart.map(v => v.price).reduce(reducer) / 100).toFixed(2)}`;
   };
 
   const deleteCartItem = cartItemId => {
