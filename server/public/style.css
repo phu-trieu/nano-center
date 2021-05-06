@@ -48,21 +48,21 @@ header {
 
 .header-text h1,
 .product-name,
-.filter-title,
-.cart-back,
-.your-cart {
+.your-cart,
+.main-font {
   font-family: var(--main-font);
 }
 
 .header-text p,
-.product-price {
+.product-price,
+.secondary-font {
   font-family: var(--secondary-font);
 }
 
 .header-text,
 .carousel-img,
-.cart,
-.delete {
+.delete,
+.cursor-pointer {
   cursor: pointer;
 }
 
@@ -372,6 +372,8 @@ header {
   right: -100%;
   transition: all 250ms ease-in-out;
   z-index: 2;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .cart-menu.active {
@@ -437,10 +439,54 @@ header {
 
 .shipping-info {
   height: 100vh;
+  width: 60%;
 }
 
 .shipping-cart {
   background-color: #9E9B9B;
   height: 100vh;
+  width: 40%;
+  max-width: 450px;
 
+  position: fixed;
+  right: 0;
+  top: 53px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.line {
+  height: 1px;
+  width: 0;
+  background-color: black;
+  transition: width 200ms ease-in-out;
+}
+
+.line.active {
+  width: 100%;
+}
+
+.shipping-hr {
+  width: 70%;
+  max-width: 200px;
+}
+
+.shipping-input {
+  width: 60%;
+  min-width: 150px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.submit {
+  background-color: black;
+  color: white;
+  font-size: 1.3rem;
+  font-family: var(--main-font);
+  border-style: none;
+  border-radius: 10px;
+  width: 40%;
+  padding: 7px;
+  min-width: 150px;
+  margin-top: 20px;
 }

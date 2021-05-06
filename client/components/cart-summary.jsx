@@ -12,12 +12,17 @@ const CartSummary = props => {
     );
   };
 
+  const checkout = () => {
+    props.setView({ name: 'shipping', params: {} });
+    props.setCartOpen(false);
+  };
+
   return (
     <div className={`cart-menu ${props.cartOpen ? 'active' : ''}`}>
       <h1 className="your-cart ms-1 mt-4">Your Cart</h1>
       {checkCart()}
       <p className="cart-total">{`Total (${props.cart.length} ${props.cart.length === 1 ? 'item' : 'items'}): ${props.total}`}</p>
-      <button className="checkout-btn">Checkout</button>
+      <button onClick={checkout} className="checkout-btn mb-2">Checkout</button>
     </div>
   );
 };

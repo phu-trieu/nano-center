@@ -29,7 +29,7 @@ const ProductDetails = props => {
   return (
     product && <div>
       <div style={{ height: props.spacerHeight }}></div>
-      <div className="directory ms-3">
+      <div className="directory secondary-font ms-3 mt-3">
         <u onClick={props.goHome}>Home</u>
         <p> &gt; </p>
         <u onClick={getProductsByType}>{product.productType}</u>

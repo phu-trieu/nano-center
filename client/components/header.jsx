@@ -18,7 +18,7 @@ const Header = props => {
           <p>computers & electronics</p>
         </div>
       </div>
-      <div onClick={props.handleCartClick} className="cart d-flex align-items-center me-3 position-relative">
+      <div onClick={props.handleCartClick} className="cursor-pointer d-flex align-items-center me-3 position-relative">
         <i className="fas fa-shopping-cart cart-icon"></i>
         <div className="cart-count position-absolute d-flex justify-content-center align-items-center">
           {props.cartItemCount}
