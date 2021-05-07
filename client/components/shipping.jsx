@@ -10,13 +10,13 @@ const Shipping = props => {
   return (
     <div className="hundo">
       <div style={{ height: props.spacerHeight }}></div>
-      <div className="d-flex hundo justify-content-between">
+      <div className="d-flex hundo shipping-info-wrapper">
         <div className="shipping-info">
           <div
             onClick={props.goHome}
             onMouseEnter={handleHover}
             onMouseLeave={handleHover}
-            className="cursor-pointer d-flex align-items-center mt-2 mb-3 ms-2"
+            className="cursor-pointer back-to-shopping d-flex align-items-center mt-2 mb-3 ms-2"
           >
             <i className="fas fa-arrow-left me-1"></i>
             <div className="back-to-shopping">
@@ -24,13 +24,13 @@ const Shipping = props => {
               <div className={`line ${line && 'active'}`}></div>
             </div>
           </div>
-          <div className="ms-2">
+          <div className="ms-2 shipping-address">
             <h1 className="your-cart">Checkout</h1>
             <div>
               <h5 className="secondary-font">Shipping Address</h5>
               <hr className="shipping-hr"/>
             </div>
-            <form action="">
+            <form action="" className="shipping-form">
               <div>
                 <label htmlFor="first-name" className="form-label secondary-font">First Name *</label>
                 <input type="text" id="first-name" className="form-control shipping-input" aria-required required="required" />
