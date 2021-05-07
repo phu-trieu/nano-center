@@ -31,39 +31,39 @@ const Shipping = props => {
               <hr className="shipping-hr"/>
             </div>
             <form action="" className="shipping-form">
-              <div>
+              <div className="hundo">
                 <label htmlFor="first-name" className="form-label secondary-font">First Name *</label>
                 <input type="text" id="first-name" className="form-control shipping-input" aria-required required="required" />
               </div>
-              <div>
+              <div className="hundo">
                 <label htmlFor="last-name" className="form-label secondary-font">Last Name *</label>
                 <input type="text" id="last-name" className="form-control shipping-input" aria-required required="required"/>
               </div>
-              <div>
+              <div className="hundo">
                 <label htmlFor="company" className="form-label secondary-font">Company</label>
                 <input type="text" id="company" className="form-control shipping-input" />
               </div>
-              <div>
+              <div className="hundo">
                 <label htmlFor="address" className="form-label secondary-font">Address *</label>
                 <input type="text" id="address" className="form-control shipping-input" aria-required required="required"/>
               </div>
-              <div>
+              <div className="hundo">
                 <label htmlFor="apt-suite" className="form-label secondary-font">Apt, suite, etc.</label>
                 <input type="text" id="apt-suite" className="form-control shipping-input" />
               </div>
-              <div>
+              <div className="hundo">
                 <label htmlFor="city" className="form-label secondary-font">City *</label>
                 <input type="text" id="city" className="form-control shipping-input" aria-required required="required"/>
               </div>
-              <div>
+              <div className="hundo">
                 <label htmlFor="state" className="form-label secondary-font">State *</label>
                 <input type="text" id="state" className="form-control shipping-input" aria-required required="required"/>
               </div>
-              <div>
+              <div className="hundo">
                 <label htmlFor="zip-code" className="form-label secondary-font">ZIP Code *</label>
                 <input type="text" id="zip-code" className="form-control shipping-input" aria-required required="required"/>
               </div>
-              <div>
+              <div className="hundo">
                 <label htmlFor="phone" className="form-label secondary-font">Phone # *</label>
                 <input type="tel" id="phone" className="form-control shipping-input" aria-required required="required"/>
               </div>
