@@ -13,7 +13,7 @@ const CartSummary = props => {
   };
 
   const checkout = () => {
-    props.setView({ name: 'shipping', params: {} });
+    props.setView({ name: 'checkout', params: { process: 'shipping' } });
     props.setCartOpen(false);
   };
 

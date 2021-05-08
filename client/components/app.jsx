@@ -6,7 +6,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import ProductListByType from './product-list-by-type';
 import CartSummary from './cart-summary';
-import Shipping from './shipping';
+import Checkout from './checkout';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -35,8 +35,8 @@ import Shipping from './shipping';
 const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'shipping',
-    params: {}
+    name: 'checkout',
+    params: { process: '' }
   });
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
@@ -68,7 +68,7 @@ const App = () => {
     }
     if (view.name === 'details') return <ProductDetails spacerHeight={spacerHeight} params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
     if (view.name === 'filter') return <ProductListByType spacerHeight={spacerHeight} type={view.params.type} setView={setView} goHome={goHome} />;
-    if (view.name === 'shipping') return <Shipping cart={cart} goHome={goHome} total={cart[0] ? calculateTotal() : '$0.00'} deleteCartItem={deleteCartItem} spacerHeight={spacerHeight} />;
+    if (view.name === 'checkout') return <Checkout cart={cart} view={view} setView={setView} goHome={goHome} total={cart[0] ? calculateTotal() : '$0.00'} deleteCartItem={deleteCartItem} spacerHeight={spacerHeight} />;
   };
 
   const getCartItems = () => {

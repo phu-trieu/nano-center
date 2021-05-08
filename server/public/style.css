@@ -362,9 +362,9 @@ header {
 }
 
 .cart-menu {
-  width: 25%;
-  min-width: 170px;
-  max-width: 300px;
+  width: 50%;
+  min-width: 180px;
+  max-width: 350px;
   height: 100vh;
   background-color: white;
   position: fixed;
@@ -413,7 +413,8 @@ header {
   margin: 10px 0 0 5px;
 }
 
-.checkout-btn:hover {
+.checkout-btn:hover,
+.submit:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -528,7 +529,8 @@ header {
   font-family: var(--main-font);
   border-style: none;
   border-radius: 10px;
-  width: 40%;
+  width: 70%;
+  max-width: 300px;
   padding: 7px;
   min-width: 150px;
   margin-top: 20px;
@@ -542,7 +544,7 @@ header {
 
 @media screen and (min-height: 700px) {
   .shipping-cart-items-wrapper {
-    height: auto;
+    height: 75%;
   }
 }
 
