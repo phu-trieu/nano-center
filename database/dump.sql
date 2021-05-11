@@ -135,9 +135,19 @@ ALTER SEQUENCE public."carts_cardId_seq" OWNED BY public.carts."cartId";
 CREATE TABLE public.orders (
     "orderId" integer NOT NULL,
     "cartId" integer NOT NULL,
-    name text NOT NULL,
-    "creditCard" text NOT NULL,
-    "shippingAddress" text NOT NULL,
+    "firstName" text NOT NULL,
+    "lastName" text NOT NULL,
+    company text,
+    address text NOT NULL,
+    "aptSuite" text,
+    city text NOT NULL,
+    state text NOT NULL,
+    "zipCode" text NOT NULL,
+    phone text NOT NULL,
+    "cardNumber" text NOT NULL,
+    "nameOnCard" text NOT NULL,
+    "expDate" text NOT NULL,
+    "securityCode" text NOT NULL,
     "createdAt" timestamp(6) with time zone DEFAULT now() NOT NULL
 );
 
@@ -230,6 +240,79 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
+166	27	5	9900
+167	27	5	9900
+168	27	5	9900
+169	27	5	9900
+170	27	5	9900
+171	27	5	9900
+172	27	5	9900
+173	27	5	9900
+174	27	5	9900
+175	27	5	9900
+176	27	5	9900
+177	27	5	9900
+178	27	5	9900
+179	27	5	9900
+180	27	5	9900
+181	27	5	9900
+182	27	5	9900
+183	27	5	9900
+184	27	5	9900
+185	27	5	9900
+186	27	5	9900
+187	27	5	9900
+188	27	5	9900
+189	28	1	2999
+190	28	1	2999
+191	28	1	2999
+192	28	1	2999
+193	28	1	2999
+194	28	1	2999
+195	28	1	2999
+196	28	1	2999
+197	28	1	2999
+198	28	1	2999
+199	28	1	2999
+200	28	1	2999
+201	28	1	2999
+202	28	1	2999
+203	28	1	2999
+204	28	1	2999
+205	28	1	2999
+206	28	1	2999
+207	28	1	2999
+208	28	1	2999
+209	28	1	2999
+210	28	1	2999
+211	28	1	2999
+212	28	1	2999
+105	26	1	2999
+109	26	1	2999
+227	29	1	2999
+228	29	1	2999
+250	29	1	2999
+251	29	1	2999
+252	29	1	2999
+253	29	1	2999
+254	29	1	2999
+255	29	1	2999
+256	29	1	2999
+257	29	1	2999
+258	29	1	2999
+259	29	1	2999
+260	29	1	2999
+261	29	1	2999
+262	29	1	2999
+263	29	1	2999
+264	29	1	2999
+265	29	1	2999
+266	29	1	2999
+267	29	1	2999
+268	30	1	2999
+269	31	1	2999
+270	32	1	2999
+271	33	1	2999
 \.
 
 
@@ -238,8 +321,14 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
-21	2021-05-03 13:19:28.512666-07
-22	2021-05-04 11:24:34.199364-07
+26	2021-05-05 12:06:07.320651-07
+27	2021-05-06 10:34:44.861031-07
+28	2021-05-06 23:18:15.986646-07
+29	2021-05-07 10:50:49.506883-07
+30	2021-05-11 00:40:13.478333-07
+31	2021-05-11 00:43:36.683957-07
+32	2021-05-11 00:47:29.133588-07
+33	2021-05-11 00:50:13.326113-07
 \.
 
 
@@ -247,7 +336,7 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 -- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
+COPY public.orders ("orderId", "cartId", "firstName", "lastName", company, address, "aptSuite", city, state, "zipCode", phone, "cardNumber", "nameOnCard", "expDate", "securityCode", "createdAt") FROM stdin;
 \.
 
 
@@ -272,21 +361,21 @@ COPY public.products ("productId", name, price, image, "productType", "shortDesc
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 72, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 271, true);
 
 
 --
 -- Name: carts_cardId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cardId_seq"', 22, true);
+SELECT pg_catalog.setval('public."carts_cardId_seq"', 33, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 1, false);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 9, true);
 
 
 --
