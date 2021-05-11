@@ -36,7 +36,7 @@ const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
     name: 'checkout',
-    params: { process: '' }
+    params: { process: 'payment' }
   });
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
