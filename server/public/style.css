@@ -435,8 +435,8 @@ header {
   object-fit: contain;
 }
 
-.carousel-img:hover {
-  border: 1px solid rgba(0, 0, 0, 0.541);
+.carousel-img.active {
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .shipping-info-wrapper {
@@ -583,4 +583,14 @@ header {
       width: 90%;
       min-width: 250px;
     }
+}
+
+.continue-shopping-btn {
+  background-color: black;
+  color: white;
+  border-style: none;
+  font-family: var(--main-font);
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 10px;
 }

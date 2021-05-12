@@ -7,6 +7,7 @@ import ProductDetails from './product-details';
 import ProductListByType from './product-list-by-type';
 import CartSummary from './cart-summary';
 import Checkout from './checkout';
+import CompletedOrder from './completed-order';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -35,12 +36,17 @@ import Checkout from './checkout';
 const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'checkout',
-    params: { process: 'payment' }
+    name: 'catalog',
+    params: { }
   });
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [spacerHeight, setSpacerHeight] = useState(0);
+  const [orderInfo, setOrderInfo] = useState({
+    firstName: '',
+    orderId: '',
+    doa: new Date().toLocaleDateString('en-US').split('/')
+  });
 
   const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
@@ -66,9 +72,10 @@ const App = () => {
         </div>
       );
     }
-    if (view.name === 'details') return <ProductDetails spacerHeight={spacerHeight} params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
-    if (view.name === 'filter') return <ProductListByType spacerHeight={spacerHeight} type={view.params.type} setView={setView} goHome={goHome} />;
-    if (view.name === 'checkout') return <Checkout cart={cart} view={view} setView={setView} goHome={goHome} total={cart[0] ? calculateTotal() : '$0.00'} deleteCartItem={deleteCartItem} spacerHeight={spacerHeight} />;
+    if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
+    if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} goHome={goHome} />;
+    if (view.name === 'checkout') return <Checkout setOrderInfo={setOrderInfo} cart={cart} setCart={setCart} view={view} setView={setView} goHome={goHome} total={cart[0] ? calculateTotal() : '$0.00'} deleteCartItem={deleteCartItem} spacerHeight={spacerHeight}/>;
+    if (view.name === 'completed-order') return <CompletedOrder view={view.name} orderInfo={orderInfo} setOrderInfo={setOrderInfo} goHome={goHome} />;
   };
 
   const getCartItems = () => {
@@ -125,6 +132,7 @@ const App = () => {
       <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
       <div onClick={checkMenu()} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
         <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
+        <div style={{ height: spacerHeight }}></div>
         {checkView()}
         <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
       </div>

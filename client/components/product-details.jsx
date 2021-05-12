@@ -28,12 +28,13 @@ const ProductDetails = props => {
 
   return (
     product && <div>
-      <div style={{ height: props.spacerHeight }}></div>
-      <div className="directory secondary-font ms-3 mt-3">
+      <nav className="directory secondary-font ms-3 mt-3">
         <u onClick={props.goHome}>Home</u>
         <p> &gt; </p>
         <u onClick={getProductsByType}>{product.productType}</u>
-      </div>
+        <p> &gt; </p>
+        <p>{product.name}</p>
+      </nav>
       <div className="d-flex flex-wrap">
         <div className="ms-3">
           <Carousel imgs={product.image} alt={product.name} />

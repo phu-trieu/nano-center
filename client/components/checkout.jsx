@@ -9,9 +9,9 @@ const Checkout = props => {
 
   const checkView = () => {
     if (props.view.params.process === 'payment') {
-      return <Payment checkoutInfo={checkoutInfo} setCheckoutInfo={setCheckoutInfo} setView={props.setView} />;
+      return <Payment checkoutInfo={checkoutInfo} setCart={props.setCart} setOrderInfo={props.setOrderInfo} setCheckoutInfo={setCheckoutInfo} setView={props.setView} />;
     }
-    return <Shipping cart={props.cart} setView={props.setView} setCheckoutInfo={setCheckoutInfo} goHome={props.goHome} total={props.total} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight}/>;
+    return <Shipping setOrderInfo={props.setOrderInfo} cart={props.cart} setView={props.setView} setCheckoutInfo={setCheckoutInfo} goHome={props.goHome} total={props.total} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight}/>;
   };
 
   const handleHover = () => {
@@ -32,7 +32,6 @@ const Checkout = props => {
 
   return (
     <div>
-      <div style={{ height: props.spacerHeight }}></div>
       <div
         onClick={checkParams}
         onMouseEnter={handleHover}

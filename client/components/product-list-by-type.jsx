@@ -21,12 +21,12 @@ const ProductListByType = props => {
 
   return (
     <section id="product-list">
-      <div style={{ height: props.spacerHeight }}></div>
       <div className="directory ms-3 mt-3 secondary-font">
-        <p>&lt; </p>
         <u onClick={props.goHome}>
           Home
         </u>
+        <p> &gt;</p>
+        <p> {props.type}</p>
       </div>
       <div className="mt-3 product-categories">
         <h1 className="main-font text-center">{props.type}</h1>
