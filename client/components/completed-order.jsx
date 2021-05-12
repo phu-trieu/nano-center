@@ -18,7 +18,7 @@ const CompletedOrder = props => {
       <h1 className="main-font">Thanks for your order, {props.orderInfo.firstName}!</h1>
       <h5 className="secondary-font">Order Number: {String(props.orderInfo.orderId).padStart(8, '0')}</h5>
       <h5 className="secondary-font">Estimated Date of Arrival: {`${date[0]}/${Number(date[1]) + 7}/${date[2]}`}</h5>
-      <button className="continue-shopping-btn col-9 col-md-7 mt-5" onClick={props.goHome}>Continue Shopping</button>
+      <button className="btn continue-shopping-btn col-9 col-md-7 mt-5" onClick={props.goHome}>Continue Shopping</button>
     </div>
   );
 };
