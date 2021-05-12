@@ -68,7 +68,7 @@ const Payment = props => {
           <label htmlFor="securityCode" className="form-label secondary-font">Security Code *</label>
           <input type="text" placeholder="e.g. 123" id="securityCode" onChange={handleChange} className="form-control shipping-input" aria-required required="required" />
         </div>
-        <button className="submit mb-3" type="submit">Pay Now</button>
+        <button className={`btn submit mb-3 ${!props.cart.length ? 'disabled' : ''}`} type="submit">Pay Now</button>
       </form>
     </div>
   );

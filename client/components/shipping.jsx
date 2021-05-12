@@ -74,7 +74,7 @@ const Shipping = props => {
                 <label htmlFor="phone" className="form-label secondary-font">Phone # *</label>
                 <input type="tel" placeholder="e.g. (123) 123-7890" id="phone" onChange={handleChange} className="form-control shipping-input" aria-required required="required" />
               </div>
-              <button className="submit mb-3" type="submit">Continue to Payment</button>
+              <button className={`btn submit mb-3 ${!props.cart.length ? 'disabled' : ''}`} type="submit">Continue to Payment</button>
             </form>
           </div>
         </div>
