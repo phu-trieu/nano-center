@@ -22,7 +22,7 @@ const ProductList = props => {
   return (
     <section id="product-list">
       <div className="mt-3 product-categories">
-        <h1 className="filter-title text-center">All Products</h1>
+        <h1 className="main-font text-center">All Products</h1>
       </div>
       <div className="product-grid">
         {products.map(product => {

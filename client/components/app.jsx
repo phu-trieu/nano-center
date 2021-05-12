@@ -6,6 +6,8 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import ProductListByType from './product-list-by-type';
 import CartSummary from './cart-summary';
+import Checkout from './checkout';
+import CompletedOrder from './completed-order';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -34,11 +36,17 @@ import CartSummary from './cart-summary';
 const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'details',
-    params: { productId: 1 }
+    name: 'catalog',
+    params: { }
   });
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
+  const [spacerHeight, setSpacerHeight] = useState(0);
+  const [orderInfo, setOrderInfo] = useState({
+    firstName: '',
+    orderId: '',
+    doa: new Date().toLocaleDateString('en-US').split('/')
+  });
 
   const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
@@ -66,6 +74,8 @@ const App = () => {
     }
     if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
     if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} goHome={goHome} />;
+    if (view.name === 'checkout') return <Checkout setOrderInfo={setOrderInfo} cart={cart} setCart={setCart} view={view} setView={setView} goHome={goHome} total={cart[0] ? calculateTotal() : '$0.00'} deleteCartItem={deleteCartItem} spacerHeight={spacerHeight}/>;
+    if (view.name === 'completed-order') return <CompletedOrder view={view.name} orderInfo={orderInfo} setOrderInfo={setOrderInfo} goHome={goHome} />;
   };
 
   const getCartItems = () => {
@@ -95,7 +105,7 @@ const App = () => {
 
   const calculateTotal = () => {
     const reducer = (acc, current) => acc + current;
-    return `$${cart.map(v => v.price).reduce(reducer) / 100}`;
+    return `$${(cart.map(v => v.price).reduce(reducer) / 100).toFixed(2)}`;
   };
 
   const deleteCartItem = cartItemId => {
@@ -114,17 +124,19 @@ const App = () => {
 
   useEffect(() => {
     getCartItems();
+    setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
   }, []);
 
   return (
     <div className="hundo">
       <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
       <div onClick={checkMenu()} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
-        <Header handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
+        <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
+        <div style={{ height: spacerHeight }}></div>
         {checkView()}
         <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
       </div>
-      <CartSummary cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
+      <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
     </div>
   );
 };

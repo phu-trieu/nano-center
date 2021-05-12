@@ -28,12 +28,13 @@ const ProductDetails = props => {
 
   return (
     product && <div>
-      <div className="spacer"></div>
-      <div className="directory ms-3">
+      <nav className="directory secondary-font ms-3 mt-3">
         <u onClick={props.goHome}>Home</u>
         <p> &gt; </p>
         <u onClick={getProductsByType}>{product.productType}</u>
-      </div>
+        <p> &gt; </p>
+        <p>{product.name}</p>
+      </nav>
       <div className="d-flex flex-wrap">
         <div className="ms-3">
           <Carousel imgs={product.image} alt={product.name} />
@@ -41,7 +42,7 @@ const ProductDetails = props => {
         <div className="ms-3">
           <div className="product-name"><h1>{product.name}</h1></div>
           <div className="product-price"><h4>{`$${(product.price / 100).toFixed(2)}`}</h4></div>
-          <button className="cart-btn" onClick={() => props.addToCart(product)}>Add to Cart</button>
+          <button className="btn cart-btn" onClick={() => props.addToCart(product)}>Add to Cart</button>
         </div>
       </div>
       <div className="product-long-desc m-auto">

@@ -185,21 +185,32 @@ app.delete('/api/cartItems/:cartItemId', validateId, (req, res, next) => {
 });
 
 app.post('/api/orders', (req, res, next) => {
+  const b = req.body;
   if (!req.session.cartId) {
     return res.status(404).json({
       error: 'cartId does not exist'
     });
-  } else if (!req.body.name || !req.body.creditCard || !req.body.shippingAddress) {
+  } else if (!b.firstName ||
+    !b.lastName ||
+    !b.address ||
+    !b.city ||
+    !b.state ||
+    !b.zipCode ||
+    !b.phone ||
+    !b.cardNumber ||
+    !b.nameOnCard ||
+    !b.expDate ||
+    !b.securityCode) {
     return res.status(400).json({
-      error: 'body must include name, creditCard, and shippingAddress'
+      error: 'body must include all required parameters'
     });
   }
   const sql = `
-    INSERT INTO "orders" ("cartId", "name", "creditCard", "shippingAddress")
-    VALUES ($1, $2, $3, $4)
+    INSERT INTO "orders" ("cartId", "firstName", "lastName", "company", "address", "aptSuite", "city", "state", "zipCode", "phone", "cardNumber", "nameOnCard", "expDate", "securityCode")
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
     RETURNING *
   `;
-  const params = [req.session.cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
+  const params = [req.session.cartId, b.firstName, b.lastName, b.company, b.address, b.aptSuite, b.city, b.state, b.zipCode, b.phone, b.cardNumber, b.nameOnCard, b.expDate, b.securityCode];
   db.query(sql, params)
     .then(result => {
       if (result.rows[0]) {
