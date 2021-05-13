@@ -8,6 +8,7 @@ import ProductListByType from './product-list-by-type';
 import CartSummary from './cart-summary';
 import Checkout from './checkout';
 import CompletedOrder from './completed-order';
+import Footer from './footer';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -137,6 +138,7 @@ const App = () => {
         <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
       </div>
       <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
+      <Footer />
     </div>
   );
 };
