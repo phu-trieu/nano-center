@@ -10,6 +10,7 @@ import Checkout from './checkout';
 import CompletedOrder from './completed-order';
 import Footer from './footer';
 import Modal from 'react-modal';
+import ModalComp from './modal';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -36,7 +37,7 @@ import Modal from 'react-modal';
 // }
 
 const App = () => {
-  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const [hamburgerOpen, setHamburgerOpen] = useState(true);
   const [view, setView] = useState({
     name: 'catalog',
     params: { }
@@ -49,7 +50,9 @@ const App = () => {
     orderId: '',
     doa: new Date().toLocaleDateString('en-US').split('/')
   });
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  Modal.setAppElement('#root');
 
   const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
@@ -133,17 +136,16 @@ const App = () => {
   return (
     <div className="hundo">
       <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
-      <div onClick={checkMenu()} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
+      <div onClick={checkMenu()} className={`block ${view.name !== 'catalog' ? 'hundo' : ''}`}>
         <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
         <div style={{ height: spacerHeight }}></div>
         {checkView()}
         <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
       </div>
       <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
-      <Footer />
-      <Modal isOpen={modalOpen}>
-        <div>Hello</div>
-      </Modal>
+      {(view.name !== 'checkout' ? <Footer /> : null)}
+      {/* <Footer /> */}
+      <ModalComp modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </div>
   );
 };
