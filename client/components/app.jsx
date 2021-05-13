@@ -9,6 +9,7 @@ import CartSummary from './cart-summary';
 import Checkout from './checkout';
 import CompletedOrder from './completed-order';
 import Footer from './footer';
+import Modal from 'react-modal';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -48,6 +49,7 @@ const App = () => {
     orderId: '',
     doa: new Date().toLocaleDateString('en-US').split('/')
   });
+  const [modalOpen, setModalOpen] = useState(true);
 
   const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
@@ -139,6 +141,9 @@ const App = () => {
       </div>
       <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
       <Footer />
+      <Modal isOpen={modalOpen}>
+        <div>Hello</div>
+      </Modal>
     </div>
   );
 };
