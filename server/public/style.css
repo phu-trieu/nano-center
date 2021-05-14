@@ -126,10 +126,6 @@ header {
   margin-top: 80px;
 }
 
-#banner {
-  z-index: -1;
-}
-
 .banner-img {
   object-fit: cover;
   height: auto;

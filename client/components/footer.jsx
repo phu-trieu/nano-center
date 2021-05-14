@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 
 const Footer = ({ setFooterHeight }) => {
+  const resizeFooter = () => {
+    const footer = document.getElementsByTagName('footer')[0];
+    const height = footer.clientHeight;
+    setFooterHeight(height + 100);
+  };
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      const footer = document.getElementsByTagName('footer')[0];
-      const height = footer.clientHeight;
-      setFooterHeight(height);
-    });
+    window.addEventListener('resize', resizeFooter);
+
+    return () => window.removeEventListener('resize', resizeFooter);
   }, []);
 
   return (

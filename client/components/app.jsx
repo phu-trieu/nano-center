@@ -137,7 +137,7 @@ const App = () => {
 
   return (
     <div className="hundo">
-      <div className="content-wrap" style={{ paddingBottom: footerHeight }}>
+      <div className="content-wrap" style={view.name !== 'checkout' ? { paddingBottom: footerHeight } : {}}>
         <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
         <div onClick={checkMenu()} className={`block ${view.name !== 'catalog' ? 'hundo' : ''}`}>
           <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
