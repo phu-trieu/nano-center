@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const Footer = () => {
+const Footer = ({ setFooterHeight }) => {
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      const footer = document.getElementsByTagName('footer')[0];
+      const height = footer.clientHeight;
+      setFooterHeight(height);
+    });
+  }, []);
+
   return (
     <footer className="row justify-content-around mx-0 col">
       <div className="mb-5 col-11 col-md-3">

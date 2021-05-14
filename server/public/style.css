@@ -5,7 +5,8 @@
 }
 
 body, html {
-  height: 100%;
+  min-height: 100vh;
+  position: relative;
 }
 
 :root {
@@ -610,6 +611,9 @@ footer {
   background-color: black;
   color: white;
   height: auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .logo-text p {

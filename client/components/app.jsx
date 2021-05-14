@@ -45,6 +45,7 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [spacerHeight, setSpacerHeight] = useState(0);
+  const [footerHeight, setFooterHeight] = useState(0);
   const [orderInfo, setOrderInfo] = useState({
     firstName: '',
     orderId: '',
@@ -131,11 +132,12 @@ const App = () => {
   useEffect(() => {
     getCartItems();
     setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
+    setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight);
   }, []);
 
   return (
     <div className="hundo">
-      <div className="content-wrap">
+      <div className="content-wrap" style={{ paddingBottom: footerHeight }}>
         <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
         <div onClick={checkMenu()} className={`block ${view.name !== 'catalog' ? 'hundo' : ''}`}>
           <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
@@ -145,7 +147,7 @@ const App = () => {
         </div>
         <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
       </div>
-      {(view.name !== 'checkout' ? <Footer /> : null)}
+      {(view.name !== 'checkout' ? <Footer setFooterHeight={setFooterHeight} /> : null)}
       <ModalComp modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </div>
   );
