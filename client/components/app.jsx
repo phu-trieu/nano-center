@@ -135,16 +135,17 @@ const App = () => {
 
   return (
     <div className="hundo">
-      <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
-      <div onClick={checkMenu()} className={`block ${view.name !== 'catalog' ? 'hundo' : ''}`}>
-        <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
-        <div style={{ height: spacerHeight }}></div>
-        {checkView()}
-        <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
+      <div className="content-wrap">
+        <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
+        <div onClick={checkMenu()} className={`block ${view.name !== 'catalog' ? 'hundo' : ''}`}>
+          <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
+          <div style={{ height: spacerHeight }}></div>
+          {checkView()}
+          <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
+        </div>
+        <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
       </div>
-      <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
       {(view.name !== 'checkout' ? <Footer /> : null)}
-      {/* <Footer /> */}
       <ModalComp modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </div>
   );
