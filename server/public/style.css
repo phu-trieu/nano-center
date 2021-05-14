@@ -96,6 +96,7 @@ header {
   object-fit: contain;
   width: 250px;
   height: 250px;
+  justify-self: center;
 }
 
 .product-grid {
@@ -107,15 +108,14 @@ header {
 }
 
 .product-card {
+  display: grid;
   border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 100ms ease-in;
 }
 
 .product-card:hover {
-  /* box-shadow: 4px 2px 2px rgb(0 0 0 / 50%); */
   transform: scale(0.96, 0.96);
-  /* border: 1px solid black; */
 }
 
 .mt-53 {
