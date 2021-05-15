@@ -37,9 +37,9 @@ import ModalComp from './modal';
 // }
 
 const App = () => {
-  const [hamburgerOpen, setHamburgerOpen] = useState(true);
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'catalog',
+    name: 'checkout',
     params: { }
   });
   const [cart, setCart] = useState([]);
@@ -132,8 +132,10 @@ const App = () => {
   useEffect(() => {
     getCartItems();
     setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
-    setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight);
-  }, []);
+    if (view.name !== 'checkout') {
+      setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight);
+    }
+  }, [view.name]);
 
   return (
     <div className="hundo">

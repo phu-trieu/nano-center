@@ -458,6 +458,12 @@ header {
   font-size: 1.2rem;
 }
 
+.cart-item {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
 .cart-item-border {
   border-top: 1px rgba(0, 0, 0, 0.3) solid;
   border-bottom: 1px rgba(0, 0, 0, 0.205) solid;
@@ -541,6 +547,8 @@ header {
 .cart-img-wrapper {
   width: 80px;
   height: 80px;
+  justify-self: center;
+  align-self: center;
 }
 
 .w-85 {
@@ -565,7 +573,7 @@ header {
   width: fit-content;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 575px) {
   .shipping-form {
     width: 100%;
     display: flex;

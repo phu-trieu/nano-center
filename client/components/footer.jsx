@@ -6,6 +6,7 @@ const Footer = ({ setFooterHeight }) => {
     const height = footer.clientHeight;
     setFooterHeight(height + 100);
   };
+
   useEffect(() => {
     window.addEventListener('resize', resizeFooter);
 

@@ -6,12 +6,13 @@ import CheckoutCartSummary from './checkout-cart-summary';
 const Checkout = props => {
   const [checkoutInfo, setCheckoutInfo] = useState({});
   const [line, setLine] = useState(false);
+  const [notAcknowledged, setNotAcknowledged] = useState(true);
 
   const checkView = () => {
     if (props.view.params.process === 'payment') {
-      return <Payment checkoutInfo={checkoutInfo} cart={props.cart} setCart={props.setCart} setOrderInfo={props.setOrderInfo} setCheckoutInfo={setCheckoutInfo} setView={props.setView} />;
+      return <Payment notAcknowledged={notAcknowledged} setNotAcknowledged={setNotAcknowledged} checkoutInfo={checkoutInfo} cart={props.cart} setCart={props.setCart} setOrderInfo={props.setOrderInfo} setCheckoutInfo={setCheckoutInfo} setView={props.setView} />;
     }
-    return <Shipping setOrderInfo={props.setOrderInfo} cart={props.cart} setView={props.setView} setCheckoutInfo={setCheckoutInfo} goHome={props.goHome} total={props.total} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight}/>;
+    return <Shipping notAcknowledged={notAcknowledged} setNotAcknowledged={setNotAcknowledged} setOrderInfo={props.setOrderInfo} cart={props.cart} setView={props.setView} setCheckoutInfo={setCheckoutInfo} goHome={props.goHome} total={props.total} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight}/>;
   };
 
   const handleHover = () => {
@@ -45,7 +46,6 @@ const Checkout = props => {
         </div>
       </div>
       <h1 className="your-cart ms-2">Checkout</h1>
-
       {checkView()}
       <CheckoutCartSummary cart={props.cart} total={props.total} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight} />
     </div>
