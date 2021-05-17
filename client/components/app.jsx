@@ -39,7 +39,7 @@ import ModalComp from './modal';
 const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'checkout',
+    name: 'catalog',
     params: { }
   });
   const [cart, setCart] = useState([]);
@@ -51,7 +51,7 @@ const App = () => {
     orderId: '',
     doa: new Date().toLocaleDateString('en-US').split('/')
   });
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(true);
 
   Modal.setAppElement('#root');
 
