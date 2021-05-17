@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const Footer = () => {
+const Footer = ({ setFooterHeight }) => {
+  const resizeFooter = () => {
+    const footer = document.getElementsByTagName('footer')[0];
+    const height = footer.clientHeight;
+    setFooterHeight(height + 100);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeFooter);
+
+    return () => window.removeEventListener('resize', resizeFooter);
+  }, []);
+
   return (
-    <footer className="row justify-content-around mx-0">
+    <footer className="row justify-content-around mx-0 col">
       <div className="mb-5 col-11 col-md-3">
         <div className="d-flex py-2">
           <div className="logo me-2">

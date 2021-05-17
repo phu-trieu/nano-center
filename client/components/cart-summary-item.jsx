@@ -3,7 +3,7 @@ import React from 'react';
 const CartSummaryItem = props => {
   return (
     <div className="cart-item-border">
-      <div className="d-flex justify-content-evenly hundo">
+      <div className="cart-item hundo">
         <div className="cart-img-wrapper">
           <img className="cart-img me-2" src={props.image} alt={props.name}/>
         </div>

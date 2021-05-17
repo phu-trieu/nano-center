@@ -9,6 +9,8 @@ import CartSummary from './cart-summary';
 import Checkout from './checkout';
 import CompletedOrder from './completed-order';
 import Footer from './footer';
+import Modal from 'react-modal';
+import ModalComp from './modal';
 
 // export default class App extends React.Component {
 //   constructor(props) {
@@ -43,11 +45,15 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [spacerHeight, setSpacerHeight] = useState(0);
+  const [footerHeight, setFooterHeight] = useState(0);
   const [orderInfo, setOrderInfo] = useState({
     firstName: '',
     orderId: '',
     doa: new Date().toLocaleDateString('en-US').split('/')
   });
+  const [modalOpen, setModalOpen] = useState(true);
+
+  Modal.setAppElement('#root');
 
   const handleMenuClick = () => {
     setHamburgerOpen(state => !state);
@@ -126,19 +132,25 @@ const App = () => {
   useEffect(() => {
     getCartItems();
     setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
-  }, []);
+    if (view.name !== 'checkout') {
+      setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight);
+    }
+  }, [view.name]);
 
   return (
     <div className="hundo">
-      <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
-      <div onClick={checkMenu()} className={`block ${view.name === 'details' || view.name === 'filter' ? 'hundo' : ''}`}>
-        <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
-        <div style={{ height: spacerHeight }}></div>
-        {checkView()}
-        <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
+      <div className="content-wrap" style={view.name !== 'checkout' ? { paddingBottom: footerHeight } : {}}>
+        <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
+        <div onClick={checkMenu()} className={`block ${view.name !== 'catalog' ? 'hundo' : ''}`}>
+          <Header setSpacerHeight={setSpacerHeight} handleMenuClick={handleMenuClick} handleCartClick={handleCartClick} goHome={goHome} cartItemCount={cart.length}/>
+          <div style={{ height: spacerHeight }}></div>
+          {checkView()}
+          <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
+        </div>
+        <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
       </div>
-      <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
-      <Footer />
+      {(view.name !== 'checkout' ? <Footer setFooterHeight={setFooterHeight} /> : null)}
+      <ModalComp modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </div>
   );
 };

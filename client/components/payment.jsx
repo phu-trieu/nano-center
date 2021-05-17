@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Payment = props => {
   const c = props.checkoutInfo;
@@ -10,6 +10,10 @@ const Payment = props => {
       checkoutInfo[id] = value;
       return { ...checkoutInfo };
     });
+  };
+
+  const acknowledge = () => {
+    props.setNotAcknowledged(prevState => !prevState);
   };
 
   const handleSubmit = e => {
@@ -33,6 +37,12 @@ const Payment = props => {
         }));
       });
   };
+
+  useEffect(() => {
+    props.setNotAcknowledged(true);
+
+    return () => props.setNotAcknowledged(true);
+  }, []);
 
   return (
     <div>
@@ -68,7 +78,14 @@ const Payment = props => {
           <label htmlFor="securityCode" className="form-label secondary-font">Security Code *</label>
           <input type="text" placeholder="e.g. 123" id="securityCode" onChange={handleChange} className="form-control shipping-input" aria-required required="required" />
         </div>
-        <button className={`btn submit mb-3 ${!props.cart.length ? 'disabled' : ''}`} type="submit">Pay Now</button>
+        <div className="secondary-font col-11 col-sm-6 d-flex align-items-center mt-2">
+          <input onChange={acknowledge} type="checkbox" name="payment-check" id="payment-check" className="me-2" />
+          <label htmlFor="payment-check">
+            I acknowledge that no personal information was used in order to complete
+            this form and also that this is not a real transaction.
+          </label>
+        </div>
+        <button disabled={props.notAcknowledged} className={`btn submit mb-3 ${!props.cart.length ? 'disabled' : ''}`} type="submit">Pay Now</button>
       </form>
     </div>
   );
