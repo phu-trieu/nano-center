@@ -45,11 +45,17 @@ const Footer = ({ setFooterHeight }) => {
         <h2 className="secondary-font pt-2">Follow Us</h2>
         <div className="sm-imgs">
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <img src="/images/fb-logo.png" alt="" />
+            <img src="/images/logos/fb-logo.png" alt="" />
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src="/images/ig-logo.png" alt="" /></a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><img src="/images/yt-logo.png" alt="" /></a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img src="/images/tw-logo.png" alt="" /></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/logos/ig-logo.png" alt="" />
+          </a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/logos/yt-logo.png" alt="" />
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/logos/tw-logo.png" alt="" />
+          </a>
         </div>
       </div>
     </footer>

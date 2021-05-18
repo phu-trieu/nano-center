@@ -46,7 +46,7 @@ const ProductDetails = props => {
         </div>
       </div>
       <div className="product-long-desc m-auto">
-        <p>{product.longDescription}</p>
+        <p className="secondary-font">{product.longDescription}</p>
       </div>
     </div>
   );

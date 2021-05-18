@@ -1,0 +1,335 @@
+productId,name,price,image,productType,shortDescription,longDescription
+1,AMD Ryzen 9 5950X Vermeer 3.4GHz 16-Core AM4 Boxed Processor,79999,"{images/products/AMD_Ryzen_9_5950X_1.jpg,images/products/AMD_Ryzen_9_5950X_2.jpg,images/products/AMD_Ryzen_9_5950X_3.jpg,images/products/AMD_Ryzen_9_5950X_4.jpg}",CPU,"Get the high-speed gaming performance of the world's best desktop processor. Encode faster. Render faster. Iterate faster. Create more, faster with AMD Ryzen processor.","When you have the world’s most advanced processor for designers and content creators, the possibilities are endless. Whether you are designing the next skyscraper, or animating a complex character, you need a powerful processor that can handle your workflow's full spectrum of computing demands. Hands down, the AMD Ryzen 5000 Series desktop processors set the bar for performance seeking artists and engineers alike.
+
+** Specifications
+# of CPU Cores
+16
+# of Threads
+32
+Base Clock
+3.4GHz
+Max Boost Clock
+Up to 4.9GHz
+Total L2 Cache
+8MB
+Total L3 Cache
+64MB
+Unlocked
+Yes
+CMOS
+TSMC 7nm FinFET
+Package
+AM4
+PCI Express® Version
+PCIe 4.0
+Thermal Solution (PIB)
+Not included
+Default TDP / TDP
+105W
+Max Temps
+90°C
+*OS Support
+Windows 10 - 64-Bit Edition
+RHEL x86 64-Bit
+Ubuntu x86 64-Bit
+*Operating System (OS) support will vary by manufacturer. **"
+2,AMD Ryzen 5 5600X Vermeer 3.7GHz 6-Core AM4 Boxed Processor with Wraith Stealth Cooler,27999,"{images/products/AMD_Ryzen_5_5600X_1.jpg,images/products/AMD_Ryzen_5_5600X_2.jpg,images/products/AMD_Ryzen_5_5600X_3.jpg,images/products/AMD_Ryzen_5_5600X_4.jpg}",CPU,N/A,"Get the high-speed gaming performance of the world's best desktop processor. Encode faster. Render faster. Iterate faster. Create more, faster with AMD Ryzen processor.
+
+** Specifications
+# of CPU Cores
+6
+# of Threads
+12
+Base Clock
+3.7GHz
+Max Boost Clock
+Up to 4.6GHz
+Total L2 Cache
+3MB
+Total L3 Cache
+32MB
+Unlocked
+Yes
+CMOS
+TSMC 7nm FinFET
+Package
+AM4
+PCI Express® Version
+PCIe 4.0
+Thermal Solution (PIB)
+Wraith Stealth
+Default TDP / TDP
+65W
+Max Temps
+95°C
+*OS Support
+Windows 10 - 64-Bit Edition
+RHEL x86 64-Bit
+Ubuntu x86 64-Bit
+*Operating System (OS) support will vary by manufacturer. **"
+3,AMD Ryzen 5 3600 Matisse 3.6GHz 6-Core AM4 Boxed Processor with Wraith Stealth Cooler,21999,"{images/products/AMD_Ryzen_5_3600_1.jpg,images/products/AMD_Ryzen_5_3600_2.jpg,images/products/AMD_Ryzen_5_3600_3.jpg,images/products/AMD_Ryzen_5_3600_4.jpg}",CPU,N/A,"3rd Gen AMD Ryzen processors are built using the world's most advanced 7nm manufacturing technology. Paired with Wraith coolers, AMD Ryzen processors deliver game-winning performance while keeping your system astonishingly cool and quiet. Ryzen processors neural-net intelligence can adapt to your workload. That's the advantage you gain when you own the world's most advanced processor for gaming.
+
+** Specifications
+# of CPU Cores
+6
+# of Threads
+12
+Base Clock
+3.6GHz
+Max Boost Clock
+Up to 4.2GHz
+Total L1 Cache
+384KB
+Total L2 Cache
+3MB
+Total L3 Cache
+32MB
+Unlocked
+Yes
+CMOS
+TSMC 7nm FinFET
+Package
+AM4
+PCI Express® Version
+PCIe 4.0 x16
+Thermal Solution (PIB)
+Wraith Stealth
+Thermal Solution (MPK)
+Wraith Stealth
+Default TDP / TDP
+65W
+Max Temps
+95°C
+*OS Support
+Windows 10 - 64-Bit Edition
+RHEL x86 64-Bit
+Ubuntu x86 64-Bit
+*Operating System (OS) support will vary by manufacturer. ** "
+4,AMD Ryzen 9 3950X Matisse 3.5GHz 16-Core AM4 Boxed Processor,67999,"{images/products/AMD_Ryzen_9_3950X_1.jpg,images/products/AMD_Ryzen_9_3950X_2.jpg,images/products/AMD_Ryzen_9_3950X_3.jpg}",CPU,N/A,"Experience elite performance in games, content creation, and intense multi-tasking. A beautifully balanced design for serious PC enthusiasts.
+
+** Specifications
+# of CPU Cores
+16
+# of Threads
+32
+Base Clock
+3.5GHz
+Max Boost Clock
+Up to 4.7GHz
+Total L1 Cache
+1MB
+Total L2 Cache
+8MB
+Total L3 Cache
+64MB
+Unlocked
+Yes
+CMOS
+TSMC 7nm FinFET
+Package
+AM4
+PCI Express® Version
+PCIe 4.0 x16
+Thermal Solution (PIB)
+Cooler Not Included, Liquid Cooling Recommended
+Default TDP / TDP
+105W
+*OS Support
+Windows 10 - 64-Bit Edition
+RHEL x86 64-Bit
+Ubuntu x86 64-Bit
+*Operating System (OS) support will vary by manufacturer. **"
+5,"AMD Ryzen Threadripper PRO 3975WX Castle Peak 3.5GHz 32 Core sWRX8 Boxed Processor
+",259999,"{images/products/AMD_Ryzen_Threadripper_PRO_3975WX_1.jpg,images/products/AMD_Ryzen_Threadripper_PRO_3975WX_2.jpg,images/products/AMD_Ryzen_Threadripper_PRO_3975WX_3.jpg,images/products/AMD_Ryzen_Threadripper_PRO_3975WX_4.jpg}",CPU,N/A,"Take your workstation's performance to the next level with the AMD Ryzen Threadripper PRO 3975WX 3.5 GHz 32-Core sWRX8 Processor. Built using the 7nm Zen Core architecture with the sWRX8 socket, this processor is designed to deliver exceptional performance for professionals such as artists, architects, engineers, and data scientists. Featuring 32 cores and 64 threads with a 3.5 GHz base clock frequency, a 4.2 GHz boost frequency, and 128MB of L3 cache, this processor significantly reduces rendering times for 8K videos, high-resolution photos, and 3D models. The Ryzen Threadripper PRO supports up to 128 PCI Express 4.0 lanes for high-speed throughput to compatible devices.
+
+** Specifications
+# of CPU Cores
+32
+# of Threads
+64
+Base Clock
+3.5GHz
+Max Boost Clock
+Up to 4.2GHz
+Total L1 Cache
+2MB
+Total L2 Cache
+16MB
+Total L3 Cache
+128MB
+Unlocked
+No
+CMOS
+TSMC 7nm FinFET
+Package
+sWRX8
+Socket Count
+1P
+PCI Express® Version
+PCIe 4.0
+Default TDP / TDP
+280W
+Max Temps
+90°C
+*OS Support
+Windows 10 - 64-Bit Edition
+*Operating System (OS) support will vary by manufacturer. **"
+6,Intel Core i7-10700K Comet Lake 8-Core 3.8 GHz LGA 1200 125W Desktop Processor w/ Intel UHD Graphics 630,32900,"{images/products/Intel_Core_i7-10700K_1.jpg,images/products/Intel_Core_i7-10700K_2.jpg,images/products/Intel_Core_i7-10700K_3.jpg,images/products/Intel_Core_i7-10700K_4.jpg}",CPU,N/A,"Intel’s tenth generation octa-core hyperthreaded i7-10700K is one of the fastest high-end desktop CPUs ever made. A simple overclock yields all 16 threads running at a staggering 5.1 GHz. Gaming and desktop performance is second only to the flagship i9-10900K. Although a new (Z490) LGA1200 motherboard is required, it will remain compatible with Rocket Lake CPUs which are due later this year. The 10700K’s $400 USD price tag puts it in a similar price band to AMD’s 12-core hyperthreaded Ryzen 9 3900X, however, the 10700K’s faster cores combined with its lower memory latency, yield a 12% effective speed advantage over the 3900X. Intra-generationally comparing the 10700K and 10600K shows that the 10600K offers almost identical gaming performance for 34% less money.
+
+** CPU Specifications
+# of Cores 8
+# of Threads 16
+Processor Base Frequency 3.80 GHz
+Max Turbo Frequency 5.10 GHz
+Cache 16 MB Intel® Smart Cache
+Bus Speed 8 GT/s
+Intel® Turbo Boost Max Technology 3.0 Frequency ‡ 5.10 GHz
+Intel® Turbo Boost Technology 2.0 Frequency‡ 5.00 GHz
+TDP 125 W
+Configurable TDP-down Frequency 3.50 GHz
+Configurable TDP-down 95 W **"
+7,Intel Core i5-10600K Comet Lake 6-Core 4.1 GHz LGA 1200 125W BX8070110600K Desktop Processor Intel UHD Graphics 630,22299,"{images/products/Intel_Core_i5-10600K_1.jpg,images/products/Intel_Core_i5-10600K_2.jpg,images/products/Intel_Core_i5-10600K_3.jpg,images/products/Intel_Core_i5-10600K_4.jpg}",CPU,N/A,"Intel’s tenth gen, six-core i5-10600K is one of the fastest consumer CPUs currently available. Out of the box, its maximum all core frequency is 4.5 GHz, but a simple overclock allows all 12 threads to hit 5.0 GHz. Although a new Z490 (LGA1200) motherboard is required, Intel have indicated that LGA1200 will remain compatible with Rocket Lake CPUs which are due later this year. The eight-core Ryzen 3700X currently competes in the 10600K’s price bracket. CPU based encoding is akin to using hair clippers on a lawn but If dedicated hardware such as NVENC or QuickSync is not an option, the 3700X can outperform the 10600K in encoding workloads such as UserBenchmark 64-core, Cinebench, Blender-CPU and Handbrake-CPU. Meanwhile, the 10600K is better for almost everything else. Currently, the real problem with the 10600K, and much of the Comet Lake line up, is availability. Whilst there was a paper launch in Q2 2020, at the time of writing, the 10600K is still largely unavailable for purchase. In order to achieve better value for money, without compromising on gaming performance, it is necessary to consider the older generation 9600K which is 26% cheaper and offers similar gaming performance.
+
+** CPU Specifications
+# of Cores
+6
+
+# of Threads
+12
+
+Processor Base Frequency
+4.10 GHz
+
+Max Turbo Frequency
+4.80 GHz
+
+Cache
+12 MB Intel® Smart Cache
+
+Bus Speed
+8 GT/s
+
+Intel® Turbo Boost Technology 2.0 Frequency‡
+4.80 GHz
+
+TDP
+125 W
+
+Configurable TDP-down Frequency
+3.80 GHz
+
+Configurable TDP-down
+95 W **"
+8,Intel Core i9-11900K Rocket Lake 8-Core 3.5 GHz LGA 1200 125W BX8070811900K Desktop Processor Intel UHD Graphics 750,58999,"{images/products/Intel_Core_i9-11900K_1.jpg,images/products/Intel_Core_i9-11900K_2.jpg,images/products/Intel_Core_i9-11900K_3.jpg}",CPU,N/A,"The i9-11900K is the fastest CPU in Intel’s 11th Gen Rocket Lake-S lineup which brings higher IPC (early samples indicate +19%) and 50% stronger integrated graphics. There are also 500 series chipset improvements including: 20 PCIe4 CPU lanes (up from 16) and USB 3.2 Gen 2x2 (20 Gbps up from 10 Gbps). Rocket Lake’s IPC uplift translates to around a 10% faster Effective Speed than both Intel's 10th Gen and AMD’s 5000 series. Despite Intel’s performance lead, AMD continues to outsell Intel. Given the scale of Intel's operation, it’s inexplicable that their marketing remains so neglected. Little effort is made to counter widespread disinformation such as: “it uses too much electricity” or the classic: “it needs more cores”. Intel’s marketing samples are routinely distributed to reviewers that appear better incentivized to bury Intel's products rather than review them. Not enabling XMP or only testing with BIOS power limits enabled is akin to leaving the handbrake on during a race. Mind-numbing “scientific” and rendering benchmarks are presented as gospel. Different games, mostly unplayed by real users, are cherry picked for each “review”. When it's convenient, canned game benchmarks are chosen such as Ulletical’s CSGO which runs at nearly double the in-game fps. Credible benchmark data, which necessarily includes replicable video footage from popular games, is the exception rather than the rule. At every release, AMD’s marketers coordinate narratives to ensure another feast of blue blubber. Nonetheless, towards the end of 2021, Intel’s Golden Cove is due to offer an additional 20-30% performance increase. At that time, with a net 30-40% performance lead, Intel will probably regain significant market share despite AMD's class-leading marketing. In the meantime, most PC gamers need look no further than the 11400F. ** CPU Specifications
+# of Cores
+8
+
+# of Threads
+16
+
+Processor Base Frequency
+3.50 GHz
+
+Max Turbo Frequency
+5.30 GHz
+
+Intel® Thermal Velocity Boost Frequency
+5.30 GHz
+
+Cache
+16 MB Intel® Smart Cache
+
+Bus Speed
+8 GT/s
+
+Intel® Turbo Boost Max Technology 3.0 Frequency ‡
+5.20 GHz
+
+Intel® Turbo Boost Technology 2.0 Frequency‡
+5.10 GHz
+
+TDP
+125 W
+
+Configurable TDP-down Frequency
+3.00 GHz
+
+Configurable TDP-down
+95 W **"
+9,"Intel Core i9-9900K Coffee Lake 8-Core, 16-Thread, 3.6 GHz (5.0 GHz Turbo) LGA 1151 (300 Series) 95W BX80684I99900K Desktop Processor Intel UHD Graphics 630",43799,"{images/products/Intel_Core_i9-9900K_1.jpg,images/products/Intel_Core_i9-9900K_2.jpg,images/products/Intel_Core_i9-9900K_3.jpg}",CPU,N/A,"The Intel i9-9900K is an 8 core, 16 thread, unlocked 9th generation Coffee Lake processor. It has a base / boost clocks of 3.6 / 4.7 GHz and a single-core boost of 5.0 GHz (the highest frequency achieved yet from this class of Intel CPU). It features 16 MB of cache, a 95W TDP and Intel UHD 630 graphics. The 9900K is compatible with the new Z390 chipset, and subject to a BIOS update, is also compatible with the older Z370 chipset. Aimed at users who do not wish to compromise, the i9-9900K offers the best gaming and desktop experience available at any price. Heavy workstation users should consider the Ryzen 9 3900X which is similarly priced. Comparing the overclocked 3900X shows that it is just 10% worse for gaming and desktop (sub octa-core) but around 40% better for 64-core computations. Gamers should consider the 9700K which offers identical overclocked gaming performance at a $100 USD discount.
+
+** CPU Specifications
+# of Cores
+8
+
+# of Threads
+16
+
+Processor Base Frequency
+3.60 GHz
+
+Max Turbo Frequency
+5.00 GHz
+
+Cache
+16 MB Intel® Smart Cache
+
+Bus Speed
+8 GT/s
+
+Intel® Turbo Boost Technology 2.0 Frequency‡
+5.00 GHz
+
+TDP
+95 W **"
+10,Intel Core i9-10900K 10-Core 3.7 GHz LGA 1200 125W BX8070110900K Desktop Processor Intel UHD Graphics 630,56999,"{images/products/Intel_Core_i9-10900K_1.jpg,images/products/Intel_Core_i9-10900K_2.jpg,images/products/Intel_Core_i9-10900K_3.jpg,images/products/Intel_Core_i9-10900K_4.jpg}",CPU,N/A,"Intel’s Comet Lake flagship, the i9-10900K, is the fastest gaming and desktop CPU currently available. This ten-core hyperthreaded processor can easily be overclocked so that all twenty threads run at an eye-watering 5.2 GHz. Whilst its stellar performance is second to none, it comes with a premium price tag of $488 USD. The 10900K also requires a new (Z490) LGA1200 motherboard, which Intel has indicated will remain compatible with Rocket Lake CPUs which are due later this year. Whilst AMD’s competing $420 USD Ryzen 3900X and $675 USD Ryzen 3950X do have a greater number of cores, their lower clock speeds and higher memory latency handicap them in non-rendering use cases. Overall, the 10900K has a 16% effective speed advantage over both the 3900X and 3950X. Users that do a lot of rendering should investigate dedicated hardware encoders such as NVENC and Quick Sync as these are far more efficient than CPU based rendering. Comparing the 10900K and 10700K shows that, when paired with a 2060S, the 10700K offers comparable gaming performance for 20% less money.
+
+** CPU Specifications
+# of Cores
+10
+
+# of Threads
+20
+
+Processor Base Frequency
+3.70 GHz
+
+Max Turbo Frequency
+5.30 GHz
+
+Intel® Thermal Velocity Boost Frequency
+5.30 GHz
+
+Cache
+20 MB Intel® Smart Cache
+
+Bus Speed
+8 GT/s
+
+Intel® Turbo Boost Max Technology 3.0 Frequency ‡
+5.20 GHz
+
+Intel® Turbo Boost Technology 2.0 Frequency‡
+5.10 GHz
+
+TDP
+125 W
+
+Configurable TDP-down Frequency
+3.30 GHz
+
+Configurable TDP-down
+95 W **"
+11,"EVGA GeForce RTX 3060 XC BLACK GAMING, 12G-P5-3655-KR, 12GB GDDR6, Dual-Fan",34999,"{images/products/EVGA_GeForce_RTX_3060_1.jpg,images/products/EVGA_GeForce_RTX_3060_2.jpg,images/products/EVGA_GeForce_RTX_3060_3.jpg,images/products/EVGA_GeForce_RTX_3060_4.jpg}",GPU,N/A,"The EVGA GeForce RTX 3060 12GB provides players with the ability to vanquish 1080p and 1440p gaming, while providing a quality NVIDIA RTX experience and a myriad of productivity benefits. The card is powered by NVIDIA Ampere architecture, which doubles down on ray tracing and AI performance with enhanced RT cores, Tensor Cores, and new streaming multiprocessors. With 12GB of GDDR6 memory, high-end performance does not have to be sacrificed to find a card for gaming and everyday use. Combined with the next generation of design, cooling, and overclocking utilizing EVGA Precision X1, the EVGA GeForce RTX 3060 12GB Series redefines what it means to be built for gaming and productivity."
+12,ASUS ROG STRIX GeForce RTX 3060 Ti DirectX 12 ROG-STRIX-RTX3060TI-O8G-GAMING 8GB 256-Bit GDDR6 PCI Express 4.0 HDCP Ready Video Card,66999,"{images/products/STRIX_GeForce_RTX_3060_Ti_1.jpg,images/products/STRIX_GeForce_RTX_3060_Ti_2.jpg,images/products/STRIX_GeForce_RTX_3060_Ti_3.jpg,images/products/STRIX_GeForce_RTX_3060_Ti_4.jpg,images/products/STRIX_GeForce_RTX_3060_Ti_5.jpg}",GPU,N/A,"From top to bottom, the ROG Strix GeForce RTX™ 3060 Ti has been radically improved to accommodate the impressive new NVIDIA Ampere architecture and to deliver the next wave of gaming performance innovation to the market. A fresh design and more metal surrounds a grouping of Axial-tech fans. Last gen’s uniform fan layout has been usurped by a new rotation scheme and specialized roles for central and auxiliary fans. Below the blades, a larger, more impressive heatsink is ready for the most demanding thermal loads. The PCB has some new tricks up its sleeves, and even the backplate has received some performance-boosting changes. You've been waiting for the latest and greatest in graphics card design - and this is it."
+13,MSI Gaming GeForce RTX 3070 8GB GDDR6 PCI Express 4.0 Video Card RTX 3070 GAMING X TRIO and OLOy 16GB (2 x 8GB) 288-Pin DDR4 SDRAM DDR4 3600,91998,"{images/products/MSI_Gaming_GeForce_RTX_3070_1.jpg,images/products/MSI_Gaming_GeForce_RTX_3070_2.jpg,images/products/MSI_Gaming_GeForce_RTX_3070_3.jpg,images/products/MSI_Gaming_GeForce_RTX_3070_4.jpg}",GPU,N/A,"The GeForce RTX 3070 is powered by Ampere—NVIDIA's 2nd gen RTX architecture. Built with enhanced RT Cores and Tensor Cores, new streaming multiprocessors, and high-speed G6 memory, it gives you the power you need to rip through the most demanding games."
+14,"GIGABYTE GeForce RTX 3080 VISION OC 10GB Video Card, GV-N3080VISION OC-10GD",109999,"{images/products/GIGABYTE_GeForce_RTX_3080_1.jpg,images/products/GIGABYTE_GeForce_RTX_3080_2.jpg,images/products/GIGABYTE_GeForce_RTX_3080_3.jpg,images/products/GIGABYTE_GeForce_RTX_3080_4.jpg}",GPU,N/A,"Powerful GeForce RTX 30 VISION series accelerates your work with incredible boosts in performance. Whether you are doing VIDEO EDITING, 3D ANIMATION, PHOTOGRAPHY, GRAPHIC DESIGN, ARCHITECTURAL VISUALIZATION or BROADCASTING, it can save you a lot of time."
+15,MSI Suprim GeForce RTX 3090 24GB GDDR6X Video Card RTX 3090 SUPRIM X 24G,232999,"{images/products/MSI_Suprim_GeForce_RTX_3090_1.jpg,images/products/MSI_Suprim_GeForce_RTX_3090_2.jpg,images/products/MSI_Suprim_GeForce_RTX_3090_3.jpg}",GPU,N/A,"The GeForce RTX™ 3090 is a big ferocious GPU (BFGPU) with TITAN class performance. It's powered by Ampere—NVIDIA's 2nd gen RTX architecture—doubling down on ray tracing and AI performance with enhanced RT Cores, Tensor Cores, and new streaming multiprocessors. Plus, it features a staggering 24 GB of G6X memory, all to deliver the ultimate gaming experience."
+16,"GIGABYTE Radeon RX 5500 XT OC 4G (rev. 2.0) Graphics Card, PCIe 4.0, 4GB 128-Bit GDDR6, GV-R55XTOC-4GD Video Card",55488,"{images/products/GIGABYTE_Radeon_RX_5500_1.jpg,images/products/GIGABYTE_Radeon_RX_5500_2.jpg,images/products/GIGABYTE_Radeon_RX_5500_3.jpg,images/products/GIGABYTE_Radeon_RX_5500_4.jpg}",GPU,N/A,"Improve your gaming performance with this Radeon RX 5500 series graphics card. Specially engineered RDNA architecture accelerates game fidelity by reducing input lag, tears and stutters during play. The multi-level cache hierarchy reduces latency and increases each game's responsiveness. The fan in this Radeon RX 5500 series graphics card features two fan-blade structures to create steady yet accelerated airflow for temperate gaming.
+"
+17,Sapphire NITRO+ AMD RADEON RX 6900 XT SE GAMING OC Graphics Card With 16GB GDDR6 HDMI / TRIPLE DP,245999,"{images/products/RADEON_RX_6900_XT_1.jpg,images/products/RADEON_RX_6900_XT_2.jpg,images/products/RADEON_RX_6900_XT_3.jpg,images/products/RADEON_RX_6900_XT_4.jpg}",GPU,N/A,The NITRO+ AMD Radeon™ RX 6900 XT delivers powerhouse 4K gaming performance with vivid visuals for an elevated experience. The all-new innovative Wave Fin Design working in tandem with our V-Shape Fin Design for GPU Cooling reduces wind friction and centralizes airflow for optimal heat dissipation and a virtually silent system. Cutting edge Memory & VRM Cooling with Heat-Pipes and next gen K6.5 Memory Pad ensures you can push your performance to new limits while keeping the NITRO+ AMD Radeon™ RX 6900 XT components icy cool. The brand new Hybrid Fan Design combines the tranquility and strong air pressure features that exhibit ultimate levels of downward air pressure through the fan while keeping fan noise low. Incredible ARGB Lighting across the graphics card using our SAPPHIRE TriXX software fused with beautiful aesthetic styling will ensure the NITRO+ AMD Radeon™ RX 6900 XT is a stunning addition to every enthusiast gamer’s PC. NITRO Charge your PC with the NITRO+ AMD Radeon™ RX 6900 XT and elevate your gaming experience to the next level!
+18,MSI Radeon RX 580 DirectX 12 RX 580 ARMOR 8G OC 8GB 256-Bit GDDR5 PCI Express x16 HDCP Ready CrossFireX Support Video Card,75999,"{images/products/MSI_Radeon_RX_580_1.jpg,images/products/MSI_Radeon_RX_580_2.jpg,images/products/MSI_Radeon_RX_580_3.jpg,images/products/MSI_Radeon_RX_580_4.jpg,images/products/MSI_Radeon_RX_580_5.jpg}",GPU,N/A,"Based on AMD Polaris architecture and manufactured with 14nm process, the AMD Radeon RX 580 graphics card is specced with 2304 Stream processors, 4GB/8GB GDDR5 memory and 256-bit memory bus. A performance-class graphics card, the Radeon RX 580 empowers gamers who play anything from the latest MOBAs to the most popular AAA titles in Full HD and beyond, and also delivers the power to drive you into the next level of immersion of the world of VR gaming and entertainment.
+
+This ARMOR 8G OC edition card is turbocharged to 1366MHz Boost Clock in OC mode (1340MHz for reference card) so you can get more graphics power for your favorite titles. Its Armor 2x cooling solution is efficient and acoustics optimized, with the fan stopping at low/idle load level. And Military Class 4 components ensure unbeatable quality, reliability and durability you can count on in countless gaming hours."
+19,"ASUS TUF Gaming Radeon RX 6700 XT OC Edition Graphics Card (AMD RDNA 2, PCIe 4.0, 12GB GDDR6, HDMI 2.1, DisplayPort 1.4a, Dual Ball Fan Bearings, All-aluminum Shroud, Reinforced Frame, GPU Tweak II)",134998,"{images/products/Radeon_RX_6700_XT_1.jpg,images/products/Radeon_RX_6700_XT_2.jpg,images/products/Radeon_RX_6700_XT_3.jpg,images/products/Radeon_RX_6700_XT_4.jpg,images/products/Radeon_RX_6700_XT_5.jpg}",GPU,N/A,"The TUF GAMING Radeon™ RX 6700 XT is a tenacious beast with a tough metal exterior, super-efficient cooling, and components that offer enhanced endurance. An all-metal shroud houses three powerful axial-tech fans with dual ball fan bearings and extra blades. Under the exoskeleton, a thick heatsink keeps thermals under tight control and TUF components, selected for maximum durability and performance, keep the card ahead of the pack. You asked for a mean machine... this one is ready for action."
+20,MSI GeForce RTX 2070 SUPER DirectX 12 RTX 2070 SUPER GAMING X TRIO 8GB 256-Bit GDDR6 PCI Express 3.0 x16 HDCP Ready SLI Support Video Card,159850,"{images/products/MSI_GeForce_RTX_2070_SUPER_1.jpg,images/products/MSI_GeForce_RTX_2070_SUPER_2.jpg,images/products/MSI_GeForce_RTX_2070_SUPER_3.jpg,images/products/MSI_GeForce_RTX_2070_SUPER_4.jpg}",GPU,N/A,"GeForce RTX is powered by NVIDIA Turing, the world's most advanced GPU architecture for gamers and creators. Get truly next-gen performance and features with dedicated AI and ray-tracing cores for the ultimate experience. The new GeForce RTX SUPER™ Series has even more cores and higher clocks, bringing you performance that's up to 25% faster than the original RTX 20 Series and 6X faster than the previous-generation 10 Series GPUs. It's time to gear up and get super powers."
