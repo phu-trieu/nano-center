@@ -4,7 +4,7 @@ const Footer = ({ setFooterHeight }) => {
   const resizeFooter = () => {
     const footer = document.getElementsByTagName('footer')[0];
     const height = footer.clientHeight;
-    setFooterHeight(height + 100);
+    setFooterHeight(height + 150);
   };
 
   useEffect(() => {

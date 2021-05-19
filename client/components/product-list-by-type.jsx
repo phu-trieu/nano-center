@@ -15,6 +15,15 @@ const ProductListByType = props => {
       });
   };
 
+  const checkArrItemsExist = () => {
+    if (products.length) {
+      return products.map(product => {
+        return <ProductListItem key={product.productId} product={product} setView={props.setView} />;
+      });
+    }
+    return <div className="text-center secondary-font">No products were found</div>;
+  };
+
   useEffect(() => {
     getProductsByType(props.type);
   }, [props.type]);
@@ -32,9 +41,7 @@ const ProductListByType = props => {
         <h1 className="main-font text-center">{props.type}</h1>
       </div>
       <div className="product-grid">
-        {products.map(product => {
-          return <ProductListItem key={product.productId} product={product} setView={props.setView} />;
-        })}
+        {checkArrItemsExist()}
       </div>
     </section>
   );

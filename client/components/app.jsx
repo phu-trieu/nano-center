@@ -133,7 +133,7 @@ const App = () => {
     getCartItems();
     setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
     if (view.name !== 'checkout') {
-      setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight);
+      setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight + 150);
     }
   }, [view.name]);
 
