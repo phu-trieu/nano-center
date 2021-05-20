@@ -51,7 +51,13 @@ const App = () => {
     orderId: '',
     doa: new Date().toLocaleDateString('en-US').split('/')
   });
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(() => {
+    fetch('/api/modalStatus')
+      .then(res => res.json())
+      .then(status => {
+        setModalOpen(status);
+      });
+  });
 
   Modal.setAppElement('#root');
 
@@ -133,7 +139,7 @@ const App = () => {
     getCartItems();
     setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
     if (view.name !== 'checkout') {
-      setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight);
+      setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight + 150);
     }
   }, [view.name]);
 
