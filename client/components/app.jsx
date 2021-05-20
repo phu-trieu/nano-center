@@ -39,8 +39,8 @@ import ModalComp from './modal';
 const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'details',
-    params: { productId: 10 }
+    name: 'catalog',
+    params: { }
   });
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
