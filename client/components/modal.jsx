@@ -24,6 +24,9 @@ const ModalComp = ({ modalOpen, setModalOpen }) => {
 
   const closeModal = () => {
     setModalOpen(false);
+    fetch('/api/modalClicked')
+      .then(res => res.json())
+      .then(status => status);
   };
 
   return (

@@ -221,8 +221,13 @@ app.post('/api/orders', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/modalClicked', (req, res, next) => {
+  req.session.modalClicked = true;
+  res.json(req.session.modalClicked);
+});
+
 app.get('/api/modalStatus', (req, res, next) => {
-  if (req.session.modalOpen === undefined) {
+  if (req.session.modalOpen === undefined || req.session.modalClicked === undefined) {
     req.session.modalOpen = true;
     res.json(req.session.modalOpen);
   } else {
