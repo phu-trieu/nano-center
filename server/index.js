@@ -221,6 +221,16 @@ app.post('/api/orders', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/modalStatus', (req, res, next) => {
+  if (req.session.modalOpen === undefined) {
+    req.session.modalOpen = true;
+    res.json(req.session.modalOpen);
+  } else {
+    req.session.modalOpen = false;
+    res.json(req.session.modalOpen);
+  }
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
