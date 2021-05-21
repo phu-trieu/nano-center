@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
+import { CSSTransition } from 'react-transition-group';
 
-const ZoomModal = ({ imgs, imgIndex, setImgIndex }) => {
+const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => {
+  const [zoomImgIndex, setZoomImgIndex] = useState(imgIndex);
+  const [fadeFwd, setFadeFwd] = useState(true);
+
   const customStyles = {
     content: {
       top: '50%',
@@ -12,28 +16,62 @@ const ZoomModal = ({ imgs, imgIndex, setImgIndex }) => {
       height: 'auto',
       transform: 'translate(-50%, -50%)',
       display: 'grid',
-      gridTemplateRows: '1fr',
-      gridTemplateColumns: '0.1fr 1.8fr 0.1fr'
+      gridTemplateRows: '0.1fr 0.9fr',
+      gridTemplateColumns: '1fr',
+      padding: '5px'
     }
   };
 
   const handleLeftArrowClick = () => {
-    if (imgIndex === 0) {
-      return setImgIndex(imgs.length - 1);
+    setFadeFwd(false);
+    if (zoomImgIndex === 0) {
+      return setZoomImgIndex(imgs.length - 1);
     }
-    setImgIndex(prevIndex => prevIndex - 1);
+    setZoomImgIndex(prevIndex => prevIndex - 1);
   };
+
+  const handleRightArrowClick = () => {
+    setFadeFwd(true);
+    if (zoomImgIndex === imgs.length - 1) {
+      return setZoomImgIndex(0);
+    }
+    setZoomImgIndex(prevIndex => prevIndex + 1);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+    setZoomImgIndex(imgIndex);
+  };
+
+  useEffect(() => {
+    setZoomImgIndex(imgIndex);
+  }, [imgIndex]);
 
   return (
     <div>
       <Modal
-        isOpen={true}
+        isOpen={showModal}
         style={customStyles}
+        onRequestClose={handleModalClose}
         id="zoom-modal"
       >
-        <i onClick={handleLeftArrowClick} className="fas fa-arrow-circle-left"></i>
-        <img src={imgs[imgIndex]} alt="" />
-        <i className="fas fa-arrow-circle-right"></i>
+        <div className="modal-info-grid">
+          <h5>{`${zoomImgIndex + 1}/${imgs.length}`}</h5>
+          <i className="fas fa-times fs-2 align-self-start justify-self-end"></i>
+        </div>
+        <div className="modal-img-grid">
+          <i onClick={handleLeftArrowClick} className="fas fa-arrow-circle-left"></i>
+          <CSSTransition
+            key={zoomImgIndex}
+            in={true}
+            appear={true}
+            timeout={300}
+            classNames={fadeFwd ? 'fade-next' : 'fade-back'}
+          >
+            <img src={imgs[zoomImgIndex]} alt="" />
+          </CSSTransition>
+          <i onClick={handleRightArrowClick} className="fas fa-arrow-circle-right"></i>
+        </div>
       </Modal>
     </div>
   );
