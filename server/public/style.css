@@ -679,3 +679,18 @@ p a {
     grid-template-columns: 0.3fr 1fr 0.3fr;
   }
 }
+
+#zoom-modal i {
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.7);
+  align-self: center;
+  justify-self: center;
+}
+
+
+
+#zoom-modal img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

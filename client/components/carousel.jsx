@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import ZoomModal from './zoom-modal';
 
-const Carousel = props => {
+const Carousel = ({ imgs, alt }) => {
   const [imgIndex, setImgIndex] = useState(0);
   const [direction, setDirection] = useState('');
 
@@ -24,11 +25,12 @@ const Carousel = props => {
         timeout={300}
         classNames={direction === 'forward' ? 'fade-next' : 'fade-back'}
       >
-        <img src={props.imgs[imgIndex]} alt={props.alt} className="product-img"/>
+        <img src={imgs[imgIndex]} alt={alt} className="product-img"/>
       </CSSTransition>
       <div className="d-flex justify-content-evenly col-8 mt-3">
-        {props.imgs.map((img, i) => <img key={i} id={i} onClick={handleCircleClick} src={img} className={`carousel-img ${i === imgIndex ? 'active' : ''}`} />)}
+        {imgs.map((img, i) => <img key={i} id={i} onClick={handleCircleClick} src={img} className={`carousel-img ${i === imgIndex ? 'active' : ''}`} />)}
       </div>
+      <ZoomModal imgs={imgs} imgIndex={imgIndex} setImgIndex={setImgIndex} />
     </div>
   );
 };
