@@ -23,15 +23,21 @@ const Carousel = ({ imgs, alt }) => {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center mb-3">
-      <CSSTransition
-        key={imgIndex}
-        in={true}
-        appear={true}
-        timeout={300}
-        classNames={direction === 'forward' ? 'fade-next' : 'fade-back'}
-      >
-        <img onClick={handleModalOpen} src={imgs[imgIndex]} alt={alt} className="product-img"/>
-      </CSSTransition>
+      <div className="position-relative">
+        <CSSTransition
+          key={imgIndex}
+          in={true}
+          appear={true}
+          timeout={300}
+          classNames={direction === 'forward' ? 'fade-next' : 'fade-back'}
+        >
+          <img src={imgs[imgIndex]} alt={alt} className="product-img" />
+        </CSSTransition>
+        <div onClick={handleModalOpen} className="zoom-overlay d-grid">
+          <h3 className="secondary-font text-light align-self-center justify-self-center">Click to Zoom</h3>
+        </div>
+        <i className="fas fa-search-plus zoom-icon"></i>
+      </div>
       <div className="d-flex justify-content-evenly col-8 mt-3">
         {imgs.map((img, i) => <img key={i} id={i} onClick={handleCircleClick} src={img} className={`carousel-img ${i === imgIndex ? 'active' : ''}`} />)}
       </div>

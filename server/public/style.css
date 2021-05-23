@@ -680,12 +680,34 @@ p a {
   }
 }
 
+.modal-img-grid {
+  display: grid;
+  grid-template-columns: 0.1fr 1.8fr 0.1fr;
+}
+
 .modal-img-grid i {
   font-size: 3.2rem;
-  color: rgba(0, 0, 0, 0.7);
   align-self: center;
   justify-self: center;
+}
+
+.modal-img-grid i,
+.modal-info-grid i {
+  transition: color 200ms ease-in-out;
   cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-img-grid i:hover,
+.modal-info-grid i:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 97%;
+  justify-self: center;
 }
 
 @media screen and (max-width: 450px) {
@@ -696,21 +718,18 @@ p a {
 
 #zoom-modal img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  z-index: -1;
-}
-
-.modal-img-grid {
-  display: grid;
-  grid-template-columns: 0.1fr 1.8fr 0.1fr;
-}
-
-.modal-info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 97%;
+  max-width: 1080px;
   justify-self: center;
+  height: auto;
+  object-fit: contain;
+  z-index: -1;
+  user-select: none;
+}
+
+@media screen and (max-height: 500px) {
+  #zoom-modal img {
+    width: 45%;
+  }
 }
 
 .ReactModal__Overlay {
@@ -724,4 +743,30 @@ p a {
 
 .ReactModal__Overlay--before-close {
   opacity: 0;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.zoom-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 200ms ease-in-out;
+}
+
+.zoom-overlay:hover {
+  opacity: 1;
+}
+
+.zoom-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

@@ -47,7 +47,7 @@ const Checkout = props => {
       </div>
       <h1 className="your-cart ms-2">Checkout</h1>
       {checkView()}
-      <CheckoutCartSummary cart={props.cart} total={props.total} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight} />
+      <CheckoutCartSummary checkNameLength={props.checkNameLength} cart={props.cart} total={props.total} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight} />
     </div>
   );
 };

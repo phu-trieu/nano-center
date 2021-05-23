@@ -12,12 +12,11 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
       left: '50%',
       right: 'auto',
       bottom: 'auto',
-      width: '97%',
-      height: 'auto',
+      width: '95%',
+      height: '95%',
       transform: 'translate(-50%, -50%)',
       display: 'grid',
       gridTemplateRows: '0.1fr 0.9fr',
-      gridTemplateColumns: '1fr',
       padding: '5px'
     }
   };
@@ -57,7 +56,7 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
       >
         <div className="modal-info-grid">
           <h5>{`${zoomImgIndex + 1}/${imgs.length}`}</h5>
-          <i className="fas fa-times fs-2 align-self-start justify-self-end"></i>
+          <i onClick={handleModalClose} className="fas fa-times fs-2 align-self-start justify-self-end"></i>
         </div>
         <div className="modal-img-grid">
           <i onClick={handleLeftArrowClick} className="fas fa-arrow-circle-left"></i>
@@ -68,7 +67,7 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
             timeout={300}
             classNames={fadeFwd ? 'fade-next' : 'fade-back'}
           >
-            <img src={imgs[zoomImgIndex]} alt="" />
+            <img className="align-self-center" src={imgs[zoomImgIndex]} alt="" />
           </CSSTransition>
           <i onClick={handleRightArrowClick} className="fas fa-arrow-circle-right"></i>
         </div>
