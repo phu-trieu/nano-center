@@ -4,6 +4,8 @@ const CompletedOrder = ({ view, orderInfo, setOrderInfo, goHome }) => {
   const date = orderInfo.doa;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     return () => {
       setOrderInfo({
         firstName: '',

@@ -39,7 +39,7 @@ import ModalComp from './modal';
 const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'completed-order',
+    name: 'catalog',
     params: { }
   });
   const [cart, setCart] = useState([]);
@@ -146,6 +146,10 @@ const App = () => {
       setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight + 150);
     }
   }, [view.name]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <div className="hundo">
