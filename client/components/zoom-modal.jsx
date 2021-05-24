@@ -55,7 +55,7 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
         id="zoom-modal"
       >
         <div className="modal-info-grid">
-          <h5>{`${zoomImgIndex + 1}/${imgs.length}`}</h5>
+          <h5 className="secondary-font">{`${zoomImgIndex + 1}/${imgs.length}`}</h5>
           <i onClick={handleModalClose} className="fas fa-times fs-2 align-self-start justify-self-end"></i>
         </div>
         <div className="modal-img-grid">

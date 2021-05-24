@@ -39,17 +39,19 @@ import ModalComp from './modal';
 const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [view, setView] = useState({
-    name: 'details',
-    params: { productId: 66 }
+    name: 'completed-order',
+    params: { }
   });
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [spacerHeight, setSpacerHeight] = useState(0);
   const [footerHeight, setFooterHeight] = useState(0);
+  const date = new Date();
+  date.setTime(date.getTime() + 604800000);
   const [orderInfo, setOrderInfo] = useState({
     firstName: '',
     orderId: '',
-    doa: new Date().toLocaleDateString('en-US').split('/')
+    doa: date.toLocaleDateString('en-US').split('/')
   });
   const [modalOpen, setModalOpen] = useState(() => {
     fetch('/api/modalStatus')

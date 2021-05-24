@@ -718,18 +718,11 @@ p a {
 
 #zoom-modal img {
   width: 100%;
-  max-width: 1080px;
+  max-width: 80vh;
   justify-self: center;
-  height: auto;
   object-fit: contain;
   z-index: -1;
   user-select: none;
-}
-
-@media screen and (max-height: 500px) {
-  #zoom-modal img {
-    width: 45%;
-  }
 }
 
 .ReactModal__Overlay {
