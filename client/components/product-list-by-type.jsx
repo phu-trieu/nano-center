@@ -26,7 +26,6 @@ const ProductListByType = props => {
 
   useEffect(() => {
     getProductsByType(props.type);
-    window.scrollTo(0, 0);
   }, [props.type]);
 
   return (

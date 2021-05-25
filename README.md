@@ -1,6 +1,6 @@
 # nano-center
 A full stack Node.js and React shopping cart app.
-https://wicked-sales.phutrieu.com/
+https://nano-center.phutrieu.com/
 
 **Technologies**
 * React.js
@@ -24,15 +24,15 @@ https://wicked-sales.phutrieu.com/
 
 ##### View list of products and their details
 
-![View products/product details preview](./server/public/images/preview-gifs/wicked-sales-view-products.gif)
+![View products/product details preview](./server/public/images/preview-gifs/nano-center-view-products.gif)
 
 ##### Add to cart
 
-![Add to cart preview](./server/public/images/preview-gifs/wicked-sales-add-to-cart.gif)
+![Add to cart preview](./server/public/images/preview-gifs/nano-center-add-to-cart.gif)
 
 ##### Place an order
 
-![Place an order preview](./server/public/images/preview-gifs/wicked-sales-checkout.gif)
+![Place an order preview](./server/public/images/preview-gifs/nano-center-checkout.gif)
 
 **System Requirements**
 * Node.js (10 or higher)
