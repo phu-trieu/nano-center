@@ -771,7 +771,7 @@ p a {
   left: 0;
 }
 
-.product-details div:first-of-type {
+.product-details > div:nth-of-type(1) {
   grid-template-columns: 0.1fr 9fr;
 }
 
