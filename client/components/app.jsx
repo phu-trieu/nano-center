@@ -46,10 +46,12 @@ const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [spacerHeight, setSpacerHeight] = useState(0);
   const [footerHeight, setFooterHeight] = useState(0);
+  const date = new Date();
+  date.setTime(date.getTime() + 604800000);
   const [orderInfo, setOrderInfo] = useState({
     firstName: '',
     orderId: '',
-    doa: new Date().toLocaleDateString('en-US').split('/')
+    doa: date.toLocaleDateString('en-US').split('/')
   });
   const [modalOpen, setModalOpen] = useState(() => {
     fetch('/api/modalStatus')
@@ -74,21 +76,6 @@ const App = () => {
       name: 'catalog',
       params: {}
     });
-  };
-
-  const checkView = () => {
-    if (view.name === 'catalog') {
-      return (
-        <div>
-          <Banner />
-          <ProductList setView={setView} />
-        </div>
-      );
-    }
-    if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
-    if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} goHome={goHome} />;
-    if (view.name === 'checkout') return <Checkout setOrderInfo={setOrderInfo} cart={cart} setCart={setCart} view={view} setView={setView} goHome={goHome} total={cart[0] ? calculateTotal() : '$0.00'} deleteCartItem={deleteCartItem} spacerHeight={spacerHeight}/>;
-    if (view.name === 'completed-order') return <CompletedOrder view={view.name} orderInfo={orderInfo} setOrderInfo={setOrderInfo} goHome={goHome} />;
   };
 
   const getCartItems = () => {
@@ -135,7 +122,25 @@ const App = () => {
       });
   };
 
+  const checkNameLength = name => name.length > 80 ? `${name.substr(0, 80)}...` : name;
+
+  const checkView = () => {
+    if (view.name === 'catalog') {
+      return (
+        <div>
+          <Banner />
+          <ProductList setView={setView} />
+        </div>
+      );
+    }
+    if (view.name === 'details') return <ProductDetails params={view.params} setView={setView} goHome={goHome} addToCart={addToCart} />;
+    if (view.name === 'filter') return <ProductListByType type={view.params.type} setView={setView} goHome={goHome} />;
+    if (view.name === 'checkout') return <Checkout checkNameLength={checkNameLength} setOrderInfo={setOrderInfo} cart={cart} setCart={setCart} view={view} setView={setView} goHome={goHome} total={cart[0] ? calculateTotal() : '$0.00'} deleteCartItem={deleteCartItem} spacerHeight={spacerHeight}/>;
+    if (view.name === 'completed-order') return <CompletedOrder view={view.name} orderInfo={orderInfo} setOrderInfo={setOrderInfo} goHome={goHome} />;
+  };
+
   useEffect(() => {
+    window.scrollTo(0, 0);
     getCartItems();
     setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
     if (view.name !== 'checkout') {
@@ -153,7 +158,7 @@ const App = () => {
           {checkView()}
           <div className={hamburgerOpen || cartOpen ? 'shade active' : 'shade'}></div>
         </div>
-        <CartSummary setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
+        <CartSummary checkNameLength={checkNameLength} setView={setView} cart={cart} deleteCartItem={deleteCartItem} cartOpen={cartOpen} setCartOpen={setCartOpen} total={cart[0] ? calculateTotal() : '$0.00'} />
       </div>
       {(view.name !== 'checkout' ? <Footer setFooterHeight={setFooterHeight} /> : null)}
       <ModalComp modalOpen={modalOpen} setModalOpen={setModalOpen} />

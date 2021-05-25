@@ -8,7 +8,7 @@ const CartSummary = props => {
         <h5 className="ms-2 py-4 secondary-font">Your cart is empty.</h5>
       );
     }
-    return props.cart.map(item => <CartSummaryItem key={item.cartItemId} deleteCartItem={props.deleteCartItem} cartItemId={item.cartItemId} name={item.name} price={item.price} image={item.image[0]} />
+    return props.cart.map(item => <CartSummaryItem checkNameLength={props.checkNameLength} key={item.cartItemId} deleteCartItem={props.deleteCartItem} cartItemId={item.cartItemId} name={item.name} price={item.price} image={item.image[0]} />
     );
   };
 
@@ -17,12 +17,18 @@ const CartSummary = props => {
     props.setCartOpen(false);
   };
 
+  const closeCartMenu = () => {
+    props.setCartOpen(false);
+  };
+
   return (
     <div className={`cart-menu ${props.cartOpen ? 'active' : ''}`}>
-      <h1 className="your-cart ms-1 mt-4">Your Cart</h1>
+      <div className="your-cart ms-1 mt-4 mb-2">
+        <h1 className="mb-0">Your Cart</h1>
+        <i onClick={closeCartMenu} className="fas fa-times-circle fs-1 align-self-center"></i>
+      </div>
       {checkCart()}
       <p className="cart-total">{`Total (${props.cart.length} ${props.cart.length === 1 ? 'item' : 'items'}): ${props.total}`}</p>
-      {/* {props.cart.length ? <button onClick={checkout} className="checkout-btn mb-2">Checkout</button> : ''} */}
       <button onClick={checkout} className={`btn checkout-btn mb-2 ${!props.cart.length ? 'disabled' : ''}`}>Checkout</button>
     </div>
   );

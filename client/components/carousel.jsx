@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import ZoomModal from './zoom-modal';
 
-const Carousel = props => {
+const Carousel = ({ imgs, alt }) => {
   const [imgIndex, setImgIndex] = useState(0);
   const [direction, setDirection] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const handleCircleClick = e => {
     const id = Number(e.target.id);
@@ -15,20 +17,31 @@ const Carousel = props => {
     setImgIndex(id);
   };
 
+  const handleModalOpen = () => {
+    setShowModal(true);
+  };
+
   return (
     <div className="d-flex flex-column justify-content-center align-items-center mb-3">
-      <CSSTransition
-        key={imgIndex}
-        in={true}
-        appear={true}
-        timeout={300}
-        classNames={direction === 'forward' ? 'fade-next' : 'fade-back'}
-      >
-        <img src={props.imgs[imgIndex]} alt={props.alt} className="product-img"/>
-      </CSSTransition>
-      <div className="d-flex justify-content-evenly col-8 mt-3">
-        {props.imgs.map((img, i) => <img key={i} id={i} onClick={handleCircleClick} src={img} className={`carousel-img ${i === imgIndex ? 'active' : ''}`} />)}
+      <div className="position-relative">
+        <CSSTransition
+          key={imgIndex}
+          in={true}
+          appear={true}
+          timeout={300}
+          classNames={direction === 'forward' ? 'fade-next' : 'fade-back'}
+        >
+          <img src={imgs[imgIndex]} alt={alt} className="product-img" />
+        </CSSTransition>
+        <div onClick={handleModalOpen} className="zoom-overlay d-grid">
+          <h3 className="secondary-font text-light align-self-center justify-self-center">Click to Zoom</h3>
+        </div>
+        <i className="fas fa-search-plus zoom-icon"></i>
       </div>
+      <div className="d-flex justify-content-evenly col-8 mt-3">
+        {imgs.map((img, i) => <img key={i} id={i} onClick={handleCircleClick} src={img} className={`carousel-img ${i === imgIndex ? 'active' : ''}`} />)}
+      </div>
+      <ZoomModal showModal={showModal} setShowModal={setShowModal} imgs={imgs} imgIndex={imgIndex} setImgIndex={setImgIndex} />
     </div>
   );
 };
