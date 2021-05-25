@@ -28,7 +28,7 @@ const ProductDetails = props => {
   }, []);
 
   return (
-    product && <div>
+    product && <div className="product-details">
       <nav className="directory secondary-font ms-3 mt-3">
         <u onClick={props.goHome}>Home</u>
         <p> &gt; </p>
@@ -36,7 +36,7 @@ const ProductDetails = props => {
         <p> &gt; </p>
         <p>{product.name}</p>
       </nav>
-      <div className="d-flex flex-wrap">
+      <div className="d-grid">
         <div className="ms-3">
           <Carousel imgs={product.image} alt={product.name} />
         </div>
@@ -47,6 +47,7 @@ const ProductDetails = props => {
         </div>
       </div>
       <div className="product-long-desc m-auto">
+        <h4 className="main-font"><u>Description</u></h4>
         <p className="secondary-font">{product.longDescription}</p>
       </div>
     </div>

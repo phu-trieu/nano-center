@@ -16,7 +16,7 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
       height: '95%',
       transform: 'translate(-50%, -50%)',
       display: 'grid',
-      gridTemplateRows: '0.1fr 0.9fr',
+      gridTemplateRows: '0.05fr 0.9fr 0.05fr',
       padding: '5px'
     }
   };
@@ -55,7 +55,6 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
         id="zoom-modal"
       >
         <div className="modal-info-grid">
-          <h5 className="secondary-font">{`${zoomImgIndex + 1}/${imgs.length}`}</h5>
           <i onClick={handleModalClose} className="fas fa-times fs-2 align-self-start justify-self-end"></i>
         </div>
         <div className="modal-img-grid">
@@ -70,6 +69,9 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
             <img className="align-self-center" src={imgs[zoomImgIndex]} alt="" />
           </CSSTransition>
           <i onClick={handleRightArrowClick} className="fas fa-arrow-circle-right"></i>
+        </div>
+        <div>
+          <h5 className="secondary-font text-center">{`${zoomImgIndex + 1}/${imgs.length}`}</h5>
         </div>
       </Modal>
     </div>
