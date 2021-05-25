@@ -140,13 +140,16 @@ const App = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     getCartItems();
     setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
     if (view.name !== 'checkout') {
       setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight + 150);
     }
   }, [view.name]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [view.name, view.params]);
 
   return (
     <div className="hundo">

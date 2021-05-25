@@ -24,7 +24,6 @@ const ProductDetails = props => {
 
   useEffect(() => {
     getProductDetails(props.params.productId);
-    window.scrollTo(0, 0);
   }, []);
 
   return (
