@@ -15,7 +15,7 @@ const ProductListByType = props => {
       });
   };
 
-  const checkArrItemsExist = () => {
+  const checkProductsExist = () => {
     if (products.length) {
       return products.map(product => {
         return <ProductListItem key={product.productId} product={product} setView={props.setView} />;
@@ -30,18 +30,18 @@ const ProductListByType = props => {
 
   return (
     <section id="product-list">
-      <div className="directory ms-3 mt-3 secondary-font">
+      <nav className="directory ms-3 mt-3 secondary-font">
         <u onClick={props.goHome}>
           Home
         </u>
         <p> &gt;</p>
         <p> {props.type}</p>
-      </div>
+      </nav>
       <div className="mt-3 product-categories">
         <h1 className="main-font text-center">{props.type}</h1>
       </div>
       <div className="product-grid">
-        {checkArrItemsExist()}
+        {checkProductsExist()}
       </div>
     </section>
   );

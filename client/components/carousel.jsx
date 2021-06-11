@@ -7,7 +7,8 @@ const Carousel = ({ imgs, alt }) => {
   const [direction, setDirection] = useState('');
   const [showModal, setShowModal] = useState(false);
 
-  const handleCircleClick = e => {
+  /** determines direction of sliding animation */
+  const handleImgClick = e => {
     const id = Number(e.target.id);
     if (id < imgIndex) {
       setDirection('backward');
@@ -39,7 +40,7 @@ const Carousel = ({ imgs, alt }) => {
         <i className="fas fa-search-plus zoom-icon"></i>
       </div>
       <div className="d-flex justify-content-evenly col-8 mt-3">
-        {imgs.map((img, i) => <img key={i} id={i} onClick={handleCircleClick} src={img} className={`carousel-img ${i === imgIndex ? 'active' : ''}`} />)}
+        {imgs.map((img, i) => <img key={i} id={i} onClick={handleImgClick} src={img} className={`carousel-img ${i === imgIndex ? 'active' : ''}`} />)}
       </div>
       <ZoomModal showModal={showModal} setShowModal={setShowModal} imgs={imgs} imgIndex={imgIndex} setImgIndex={setImgIndex} />
     </div>

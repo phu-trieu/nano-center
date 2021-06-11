@@ -13,7 +13,7 @@ const CheckoutCartSummary = props => {
   };
 
   return (
-    <div
+    <section
       className="shipping-cart"
       style={{ top: props.spacerHeight }}
     >
@@ -22,7 +22,7 @@ const CheckoutCartSummary = props => {
         {checkCart()}
       </div>
       <h6 className="secondary-font mt-4 ms-3">{`Total (${props.cart.length} ${props.cart.length === 1 ? 'item' : 'items'}): ${props.total}`}</h6>
-    </div>
+    </section>
   );
 };
 

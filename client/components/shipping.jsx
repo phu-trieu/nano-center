@@ -39,7 +39,7 @@ const Shipping = props => {
   }, []);
 
   return (
-    <div className="hundo">
+    <section className="hundo">
       <div className="d-flex hundo shipping-info-wrapper">
         <div className="shipping-info">
           <div className="ms-2 shipping-address">
@@ -96,7 +96,7 @@ const Shipping = props => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

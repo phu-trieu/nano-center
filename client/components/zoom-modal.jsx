@@ -42,6 +42,7 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
     setZoomImgIndex(imgIndex);
   };
 
+  /** Whenever imgIndex changes, change zoomImgIndex so modal opens up to correct img */
   useEffect(() => {
     setZoomImgIndex(imgIndex);
   }, [imgIndex]);

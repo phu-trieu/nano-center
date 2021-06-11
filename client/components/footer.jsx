@@ -7,6 +7,7 @@ const Footer = ({ setFooterHeight }) => {
     setFooterHeight(height + 150);
   };
 
+  /** gets footer height whenever footer is resized */
   useEffect(() => {
     window.addEventListener('resize', resizeFooter);
 

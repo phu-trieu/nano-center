@@ -45,7 +45,7 @@ const Payment = props => {
   }, []);
 
   return (
-    <div>
+    <section>
       <div className="contact-info ms-2 mb-4 secondary-font">
         <div className="border-bottom-checkout">
           <p className="ms-2">Contact</p>
@@ -87,7 +87,7 @@ const Payment = props => {
         </div>
         <button disabled={props.notAcknowledged} className={`btn submit mb-3 ${!props.cart.length ? 'disabled' : ''}`} type="submit">Pay Now</button>
       </form>
-    </div>
+    </section>
   );
 };
 

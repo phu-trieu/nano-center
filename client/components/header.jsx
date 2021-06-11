@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 const Header = props => {
+  /** gets header height whenever header is resized */
   useEffect(() => {
     window.addEventListener('resize', () => {
       const header = document.getElementsByTagName('header')[0];
