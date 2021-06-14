@@ -19,7 +19,7 @@ const Nav = ({ open, setOpen, setView }) => {
         <div className="categories-grid">
           <div></div>
           <h1 className="mt-3">Product Categories</h1>
-          <i onClick={closeMenu} className="nav-arrow fas fa-times-circle justify-self-end px-3 pt-2"></i>
+          <i onClick={closeMenu} className="nav-arrow cursor-pointer fas fa-times-circle justify-self-end px-3 pt-2"></i>
         </div>
         <li data-tag="CPU" onClick={handleClick}>CPU</li>
         <li data-tag="GPU" onClick={handleClick}>GPU</li>

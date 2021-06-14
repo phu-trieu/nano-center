@@ -56,10 +56,10 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
         id="zoom-modal"
       >
         <div className="modal-info-grid">
-          <i onClick={handleModalClose} className="fas fa-times fs-2 align-self-start justify-self-end"></i>
+          <i onClick={handleModalClose} className="cursor-pointer fas fa-times fs-2 align-self-start justify-self-end"></i>
         </div>
         <div className="modal-img-grid">
-          <i onClick={handleLeftArrowClick} className="fas fa-arrow-circle-left"></i>
+          <i onClick={handleLeftArrowClick} className="cursor-pointer fas fa-arrow-circle-left"></i>
           <CSSTransition
             key={zoomImgIndex}
             in={true}
@@ -69,7 +69,7 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
           >
             <img className="align-self-center" src={imgs[zoomImgIndex]} alt="" />
           </CSSTransition>
-          <i onClick={handleRightArrowClick} className="fas fa-arrow-circle-right"></i>
+          <i onClick={handleRightArrowClick} className="cursor-pointer fas fa-arrow-circle-right"></i>
         </div>
         <div>
           <h5 className="secondary-font text-center">{`${zoomImgIndex + 1}/${imgs.length}`}</h5>

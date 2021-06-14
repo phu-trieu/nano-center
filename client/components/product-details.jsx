@@ -45,7 +45,7 @@ const ProductDetails = props => {
           <button className="btn cart-btn" onClick={() => props.addToCart(product)}>Add to Cart</button>
         </div>
       </div>
-      <div className="product-long-desc m-auto">
+      <div className="w-95 m-auto">
         <h4 className="main-font"><u>Description</u></h4>
         <p className="secondary-font">{product.longDescription}</p>
       </div>

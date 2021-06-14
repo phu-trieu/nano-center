@@ -34,13 +34,13 @@ const Carousel = ({ imgs, alt }) => {
         >
           <img src={imgs[imgIndex]} alt={alt} className="product-img" />
         </CSSTransition>
-        <div onClick={handleModalOpen} className="zoom-overlay d-grid">
+        <div onClick={handleModalOpen} className="zoom-overlay cursor-pointer d-grid">
           <h3 className="secondary-font text-light align-self-center justify-self-center">Click to Zoom</h3>
         </div>
         <i className="fas fa-search-plus zoom-icon"></i>
       </div>
       <div className="d-flex justify-content-evenly col-8 mt-3">
-        {imgs.map((img, i) => <img key={i} id={i} onClick={handleImgClick} src={img} className={`carousel-img ${i === imgIndex ? 'active' : ''}`} />)}
+        {imgs.map((img, i) => <img key={i} id={i} onClick={handleImgClick} src={img} className={`carousel-img cursor-pointer ${i === imgIndex ? 'active' : ''}`} />)}
       </div>
       <ZoomModal showModal={showModal} setShowModal={setShowModal} imgs={imgs} imgIndex={imgIndex} setImgIndex={setImgIndex} />
     </div>
