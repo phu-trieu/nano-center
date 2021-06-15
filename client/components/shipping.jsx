@@ -39,7 +39,7 @@ const Shipping = props => {
   }, []);
 
   return (
-    <div className="hundo">
+    <section className="hundo">
       <div className="d-flex hundo shipping-info-wrapper">
         <div className="shipping-info">
           <div className="ms-2 shipping-address">
@@ -91,12 +91,12 @@ const Shipping = props => {
                   this form and also that this is not a real transaction.
                 </label>
               </div>
-              <button disabled={props.notAcknowledged} className={`btn submit mb-3 ${!props.cart.length ? 'disabled' : ''}`} type="submit">Continue to Payment</button>
+              <button disabled={props.notAcknowledged} className={`btn submit main-font mb-3 ${!props.cart.length ? 'disabled' : ''}`} type="submit">Continue to Payment</button>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

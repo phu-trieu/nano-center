@@ -4,10 +4,10 @@ const CartSummaryItem = props => {
   return (
     <div className="cart-item-border">
       <div className="cart-item hundo">
-        <div className="cart-img-wrapper">
+        <div className="cart-img-wrapper justify-self-center align-self-center">
           <img className="cart-img me-2" src={props.image} alt={props.name}/>
         </div>
-        <div className="cart-info">
+        <div className="cart-info secondary-font">
           <div>{props.checkNameLength(props.name)}</div>
           <div>{`$${(props.price / 100).toFixed(2)}`}</div>
           <i onClick={() => props.deleteCartItem(props.cartItemId)} className="cursor-pointer fas fa-trash-alt" title="Delete item"></i>

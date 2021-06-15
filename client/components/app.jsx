@@ -29,6 +29,10 @@ const App = () => {
     orderId: '',
     doa: date.toLocaleDateString('en-US').split('/')
   });
+  /** Before App mounts, send GET request to /api/modalStatus, which initializes to true, signaling modal to open
+   * Modal status only gets set to false once modal checkbox is checked and "Continue" button is pressed, thus closing modal
+   * Modal status is stored on req.session so user does not have to keep acknowledging modal on page refresh
+   */
   const [modalOpen, setModalOpen] = useState(() => {
     fetch('/api/modalStatus')
       .then(res => res.json())
@@ -115,6 +119,11 @@ const App = () => {
     if (view.name === 'completed-order') return <CompletedOrder view={view.name} orderInfo={orderInfo} setOrderInfo={setOrderInfo} goHome={goHome} />;
   };
 
+  /** every time view.name changes:
+   *    query db,
+   *    gets height of header and sets spacer height under header,
+   *    gets height of footer and sets bottom padding of main content
+   */
   useEffect(() => {
     getCartItems();
     setSpacerHeight(document.getElementsByTagName('header')[0].clientHeight);
@@ -123,12 +132,13 @@ const App = () => {
     }
   }, [view.name]);
 
+  /** scroll to top of window every time view changes */
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [view.name, view.params]);
 
   return (
-    <div className="hundo">
+    <main className="hundo">
       <div className="content-wrap" style={view.name !== 'checkout' ? { paddingBottom: footerHeight } : {}}>
         <Nav open={hamburgerOpen} setView={setView} setOpen={setHamburgerOpen} />
         <div onClick={checkMenu()} className={`block ${view.name !== 'catalog' ? 'hundo' : ''}`}>
@@ -141,7 +151,7 @@ const App = () => {
       </div>
       {(view.name !== 'checkout' ? <Footer setFooterHeight={setFooterHeight} /> : null)}
       <ModalComp modalOpen={modalOpen} setModalOpen={setModalOpen} />
-    </div>
+    </main>
   );
 };
 

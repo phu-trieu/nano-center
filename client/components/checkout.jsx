@@ -45,7 +45,7 @@ const Checkout = props => {
           <div className={`line ${line && 'active'}`}></div>
         </div>
       </div>
-      <h1 className="your-cart ms-2">Checkout</h1>
+      <h1 className="your-cart main-font ms-2">Checkout</h1>
       {checkView()}
       <CheckoutCartSummary checkNameLength={props.checkNameLength} cart={props.cart} total={props.total} deleteCartItem={props.deleteCartItem} spacerHeight={props.spacerHeight} />
     </div>
