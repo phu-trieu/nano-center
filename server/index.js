@@ -19,6 +19,7 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
+/** Checks to see if productId is a positive number */
 const validateId = (req, res, next) => {
   const id = Number(req.body.productId) || Number(req.params.cartItemId);
   if (Number.isNaN(id) || id < 0) {
@@ -30,6 +31,7 @@ const validateId = (req, res, next) => {
   next();
 };
 
+/** Select all products */
 app.get('/api/products', (req, res, next) => {
   const sql = `
     SELECT "productId", "name", "price", "productType", "image", "shortDescription"
@@ -40,6 +42,7 @@ app.get('/api/products', (req, res, next) => {
     .catch(err => next(err));
 });
 
+/** Select a product by productId */
 app.get('/api/products/:productId', (req, res, next) => {
   const sql = `
     SELECT * FROM "products"
@@ -62,6 +65,7 @@ app.get('/api/products/:productId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+/** Select products by productType */
 app.get('/api/products/:productType', (req, res, next) => {
   const sql = `
     SELECT * FROM "products"
@@ -110,10 +114,12 @@ app.route('/api/cart')
     `;
     const params = [req.body.productId];
     db.query(sql, params)
+    /** First, query db to check if productId exists */
       .then(selectQuery => {
         if (selectQuery.rows[0] === undefined) {
           throw new ClientError('productId could not be found', 400);
         }
+        /** if req.session.cartId already exists, return object with cartId and price of product at productId */
         if (req.session.cartId) {
           return {
             cartId: req.session.cartId,
@@ -121,11 +127,12 @@ app.route('/api/cart')
           };
         }
         const sql = `
-          INSERT INTO "carts" ("cartId", "createdAt")
-          VALUES (default, default)
-          RETURNING "cartId"
+        INSERT INTO "carts" ("cartId", "createdAt")
+        VALUES (default, default)
+        RETURNING "cartId"
         `;
         return db.query(sql)
+        /** if cartId doesn't exist, query db and add new row with new cartId */
           .then(cart => {
             const { cartId } = cart.rows[0];
             const { price } = selectQuery.rows[0];
@@ -136,6 +143,7 @@ app.route('/api/cart')
           });
       })
       .then(cartObj => {
+        /** Insert new row into cartItems table and return the auto-generated cartItemId */
         req.session.cartId = cartObj.cartId;
         const sql = `
           INSERT INTO "cartItems" ("cartId", "productId", "price")
@@ -146,6 +154,9 @@ app.route('/api/cart')
         return db.query(sql, params);
       })
       .then(cartItem => {
+        /** Once new row is inserted, join cartItems and products tables to get
+         * the products data with the cartItemId that was returned above
+         */
         const sql = `
           SELECT "c"."cartItemId",
           "c"."price",
