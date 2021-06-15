@@ -221,16 +221,25 @@ app.post('/api/orders', (req, res, next) => {
     .catch(err => next(err));
 });
 
+/** When user checks the checkbox in the opening modal, set req.session.modalClicked to true */
 app.get('/api/modalClicked', (req, res, next) => {
   req.session.modalClicked = true;
   res.json(req.session.modalClicked);
 });
 
 app.get('/api/modalStatus', (req, res, next) => {
+  /** Since req.session.modalOpen and req.session.modalClicked are undefined by
+   * default, modal always opens to first time visitors
+   */
   if (req.session.modalOpen === undefined || req.session.modalClicked === undefined) {
     req.session.modalOpen = true;
     res.json(req.session.modalOpen);
   } else {
+    /** Once user checks modal checkbox, req.session.modalClicked is set to true,
+     * so the next time the user refreshes the page, another GET request is sent
+     * to /api/modalStatus, at which point req.session.modalOpen is set to false,
+     * which tells the modal to stay closed before app component mounts
+     */
     req.session.modalOpen = false;
     res.json(req.session.modalOpen);
   }

@@ -29,6 +29,10 @@ const App = () => {
     orderId: '',
     doa: date.toLocaleDateString('en-US').split('/')
   });
+  /** Before App mounts, send GET request to /api/modalStatus, which initializes to true, signaling modal to open
+   * Modal status only gets set to false once modal checkbox is checked and "Continue" button is pressed, thus closing modal
+   * Modal status is stored on req.session so user does not have to keep acknowledging modal on page refresh
+   */
   const [modalOpen, setModalOpen] = useState(() => {
     fetch('/api/modalStatus')
       .then(res => res.json())

@@ -24,6 +24,7 @@ const ModalComp = ({ modalOpen, setModalOpen }) => {
 
   const closeModal = () => {
     setModalOpen(false);
+    /** Sets req.session.modalClicked to true */
     fetch('/api/modalClicked')
       .then(res => res.json())
       .then(status => status);
