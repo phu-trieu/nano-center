@@ -55,11 +55,11 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
         onRequestClose={handleModalClose}
         id="zoom-modal"
       >
-        <div className="modal-info-grid">
+        <div className="modal-info-grid justify-self-center">
           <i onClick={handleModalClose} className="cursor-pointer fas fa-times fs-2 align-self-start justify-self-end"></i>
         </div>
         <div className="modal-img-grid">
-          <i onClick={handleLeftArrowClick} className="cursor-pointer fas fa-arrow-circle-left"></i>
+          <i onClick={handleLeftArrowClick} className="cursor-pointer justify-self-center align-self-center fas fa-arrow-circle-left"></i>
           <CSSTransition
             key={zoomImgIndex}
             in={true}
@@ -67,9 +67,9 @@ const ZoomModal = ({ showModal, setShowModal, imgs, imgIndex, setImgIndex }) => 
             timeout={300}
             classNames={fadeFwd ? 'fade-next' : 'fade-back'}
           >
-            <img className="align-self-center" src={imgs[zoomImgIndex]} alt="" />
+            <img className="align-self-center justify-self-center" src={imgs[zoomImgIndex]} alt="" />
           </CSSTransition>
-          <i onClick={handleRightArrowClick} className="cursor-pointer fas fa-arrow-circle-right"></i>
+          <i onClick={handleRightArrowClick} className="cursor-pointer justify-self-center align-self-center fas fa-arrow-circle-right"></i>
         </div>
         <div>
           <h5 className="secondary-font text-center">{`${zoomImgIndex + 1}/${imgs.length}`}</h5>

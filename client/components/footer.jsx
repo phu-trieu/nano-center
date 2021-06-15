@@ -23,7 +23,7 @@ const Footer = ({ setFooterHeight }) => {
           </div>
           <div className="logo-text">
             <h2 className="main-font m-0">Nano Center</h2>
-            <p className="secondary-font m-0">computers & electronics</p>
+            <p className="m-0">computers & electronics</p>
           </div>
         </div>
         <div className="secondary-font logo-text mt-2">

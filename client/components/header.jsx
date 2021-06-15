@@ -15,8 +15,8 @@ const Header = props => {
       <div className="d-flex">
         <i onClick={props.handleMenuClick} className="nav-icon cursor-pointer fas fa-bars align-self-center mx-3"></i>
         <div onClick={props.goHome} className="header-text cursor-pointer d-flex flex-column justify-content-center">
-          <h1>Nano Center</h1>
-          <p>computers & electronics</p>
+          <h1 className="main-font">Nano Center</h1>
+          <p className="secondary-font">computers & electronics</p>
         </div>
       </div>
       <div onClick={props.handleCartClick} className="cursor-pointer d-flex align-items-center me-3 position-relative">

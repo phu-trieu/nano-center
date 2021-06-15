@@ -40,9 +40,9 @@ const ProductDetails = props => {
           <Carousel imgs={product.image} alt={product.name} />
         </div>
         <div className="ms-3">
-          <div className="product-name"><h1>{product.name}</h1></div>
-          <div className="product-price"><h4>{`$${(product.price / 100).toFixed(2)}`}</h4></div>
-          <button className="btn cart-btn" onClick={() => props.addToCart(product)}>Add to Cart</button>
+          <div className="product-name main-font"><h1>{product.name}</h1></div>
+          <div className="secondary-font"><h4>{`$${(product.price / 100).toFixed(2)}`}</h4></div>
+          <button className="btn cart-btn secondary-font" onClick={() => props.addToCart(product)}>Add to Cart</button>
         </div>
       </div>
       <div className="w-95 m-auto">

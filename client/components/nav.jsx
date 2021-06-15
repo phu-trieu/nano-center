@@ -18,7 +18,7 @@ const Nav = ({ open, setOpen, setView }) => {
       <ul className="nav-ul">
         <div className="categories-grid">
           <div></div>
-          <h1 className="mt-3">Product Categories</h1>
+          <h1 className="mt-3 main-font">Product Categories</h1>
           <i onClick={closeMenu} className="nav-arrow cursor-pointer fas fa-times-circle justify-self-end px-3 pt-2"></i>
         </div>
         <li data-tag="CPU" onClick={handleClick}>CPU</li>

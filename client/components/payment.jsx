@@ -85,7 +85,7 @@ const Payment = props => {
             this form and also that this is not a real transaction.
           </label>
         </div>
-        <button disabled={props.notAcknowledged} className={`btn submit mb-3 ${!props.cart.length ? 'disabled' : ''}`} type="submit">Pay Now</button>
+        <button disabled={props.notAcknowledged} className={`btn submit main-font mb-3 ${!props.cart.length ? 'disabled' : ''}`} type="submit">Pay Now</button>
       </form>
     </section>
   );

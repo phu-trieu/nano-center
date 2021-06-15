@@ -32,7 +32,7 @@ const Carousel = ({ imgs, alt }) => {
           timeout={300}
           classNames={direction === 'forward' ? 'fade-next' : 'fade-back'}
         >
-          <img src={imgs[imgIndex]} alt={alt} className="product-img" />
+          <img src={imgs[imgIndex]} alt={alt} className="product-img justify-self-center" />
         </CSSTransition>
         <div onClick={handleModalOpen} className="zoom-overlay cursor-pointer d-grid">
           <h3 className="secondary-font text-light align-self-center justify-self-center">Click to Zoom</h3>
